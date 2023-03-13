@@ -3,7 +3,7 @@ package com.example.hiddeneye.models;
 public class VideoAttribute {
 
     private String videoPath;
-    private String age;
+    private int age;
     private String isCarryingBackpack;
     private String isCarryingBag;
     private String lowerBodyClothing;
@@ -15,7 +15,9 @@ public class VideoAttribute {
     private String colorUpperBodyClothing;
     private String colorLowerBodyClothing;
 
-    public VideoAttribute(String videoPath, String age, String isCarryingBackpack, String isCarryingBag, String lowerBodyClothing, String lenLowerBodyClothing, String sleeveLength, String hairLength, String isWearingHat, String gender, String colorUpperBodyClothing, String colorLowerBodyClothing) {
+    private String[] cellValues;
+
+    public VideoAttribute(String videoPath, int age, String isCarryingBackpack, String isCarryingBag, String lowerBodyClothing, String lenLowerBodyClothing, String sleeveLength, String hairLength, String isWearingHat, String gender, String colorUpperBodyClothing, String colorLowerBodyClothing) {
         this.videoPath = videoPath;
         this.age = age;
         this.isCarryingBackpack = isCarryingBackpack;
@@ -38,11 +40,11 @@ public class VideoAttribute {
         this.videoPath = videoPath;
     }
 
-    public String getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
@@ -124,6 +126,14 @@ public class VideoAttribute {
 
     public void setColorLowerBodyClothing(String colorLowerBodyClothing) {
         this.colorLowerBodyClothing = colorLowerBodyClothing;
+    }
+
+    public String getCellValue(int column) {
+        if (column >= 0 && column < cellValues.length) {
+            return cellValues[column];
+        } else {
+            return null;
+        }
     }
 
 
