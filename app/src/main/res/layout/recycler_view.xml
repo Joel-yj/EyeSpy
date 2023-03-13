@@ -1,0 +1,51 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <!-- HorizontalScrollView to allow horizontal scrolling of table headers -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- TableLayout to display data in a table -->
+        <TableLayout
+            android:id="@+id/table_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <!-- Table header row -->
+            <TableRow>
+
+                <!-- Table header cells -->
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="Header 1"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="Header 2"
+                    android:textStyle="bold" />
+
+                <!-- Add more header cells as needed -->
+
+            </TableRow>
+
+
+            <!-- Table data rows will be populated dynamically -->
+
+        </TableLayout>
+    </HorizontalScrollView>
+    <!-- RecyclerView to display data -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>
