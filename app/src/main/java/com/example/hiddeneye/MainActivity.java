@@ -1,14 +1,13 @@
 package com.example.hiddeneye;
 
-import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.hiddeneye.adapters.VideoAttributeAdapter;
 import com.example.hiddeneye.models.VideoAttribute;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -17,55 +16,98 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Type;
 import java.util.List;
-import java.util.Scanner;
 
 public class MainActivity extends AppCompatActivity {
-
-    private VideoAttributeAdapter adapter;
-    private RecyclerView recyclerView;
-    private List<VideoAttribute> videoAttributeList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Loading Json data
-        String jsonData = loadJsonData();
-        Gson gson = new Gson();
-        Type videoAttributeType = new TypeToken<List<VideoAttribute>>(){}.getType();
-        videoAttributeList = gson.fromJson(jsonData,videoAttributeType);
-        System.out.println(jsonData);
-
-        // referencing recycler_view
-        recyclerView = findViewById(R.id.recycler_view);
-        //create and set adapter
-//        adapter = new VideoAttributeAdapter(videoAttributeList);
-//        recyclerView.setAdapter(adapter);
-        //set layout manager
-        GridLayoutManager layoutManager = new GridLayoutManager(this,1);
-        recyclerView.setLayoutManager(layoutManager);
+        loadJsonData();
 
     }
 
-    private String loadJsonData() {
+    private void loadJsonData() {
 
-        // Load Json Data from file using AssetManager
-        AssetManager assetManager = getAssets();
+        String json = null;
         try {
-            InputStream inputStream = assetManager.open("data10.json");
-            Scanner scanner = new Scanner(inputStream);
-            StringBuilder builder = new StringBuilder();
-            while (scanner.hasNextLine()) {
-                builder.append(scanner.nextLine());
-            }
-            return builder.toString();
+            InputStream inputStream = getAssets().open("android_test.json");
+            int size = inputStream.available();
+            byte[] buffer = new byte[size];
+            inputStream.read(buffer);
+            inputStream.close();
+            json = new String(buffer, "UTF-8");
         } catch (IOException e) {
             Log.e("MainActivity", "Error loading json data", e);
-            return null;
+        }
+
+        Gson gson = new Gson();
+        Type videoAttributeListType = new TypeToken<List<VideoAttribute>>() {
+        }.getType();
+        List<VideoAttribute> videoAttributesList = gson.fromJson(json, videoAttributeListType);
+        TableLayout tableLayout = findViewById(R.id.table_layout);
+        for (VideoAttribute video : videoAttributesList) {
+            TableRow tablerow = (TableRow) getLayoutInflater().inflate(R.layout.row_layout, null);
+
+            TextView videoPathTextView = tablerow.findViewById(R.id.videoPath);
+            videoPathTextView.setText(video.getVideoPath());
+
+            TextView ageTextView = tablerow.findViewById(R.id.age);
+            ageTextView.setText(String.valueOf(video.getAge()));
+
+            TextView isCarryingBackpackTextView = tablerow.findViewById(R.id.isCarryingBackpack);
+            isCarryingBackpackTextView.setText(video.isCarryingBackpack());
+
+            TextView col4 = tablerow.findViewById(R.id.isCarryingBag);
+            col4.setText(video.isCarryingBag());
+
+            TextView col5 = tablerow.findViewById(R.id.lowerBodyClothing);
+            col5.setText(video.getLowerBodyClothing());
+
+            TextView col6 = tablerow.findViewById(R.id.lenLowerBodyClothing);
+            col6.setText(video.getLenLowerBodyClothing());
+
+            TextView col7 = tablerow.findViewById(R.id.sleeveLength);
+            col7.setText(video.getSleeveLength());
+
+            TextView col8 = tablerow.findViewById(R.id.hairLength);
+            col8.setText(video.getHairLength());
+
+            TextView col9 = tablerow.findViewById(R.id.isWearingHat);
+            col9.setText(video.isWearingHat());
+
+            TextView col10 = tablerow.findViewById(R.id.gender);
+            col10.setText(video.getGender());
+
+            TextView col11 = tablerow.findViewById(R.id.colorUpperBodyClothing);
+            col11.setText(video.getColorUpperBodyClothing());
+
+            TextView col12 = tablerow.findViewById(R.id.colorLowerBodyClothing);
+            col12.setText(video.getColorLowerBodyClothing());
+
+            tableLayout.addView(tablerow);
+
         }
     }
 }
+
+
+//        // Load Json Data from file using AssetManager
+//        AssetManager assetManager = getAssets();
+//        try {
+//            InputStream inputStream = assetManager.open("data10.json");
+//            Scanner scanner = new Scanner(inputStream);
+//            StringBuilder builder = new StringBuilder();
+//            while (scanner.hasNextLine()) {
+//                builder.append(scanner.nextLine());
+//            }
+//            return builder.toString();
+//        } catch (IOException e) {
+//            Log.e("MainActivity", "Error loading json data", e);
+//            return null;
+//        }
+//    }
 
 
 //// Read the JSON file into a string

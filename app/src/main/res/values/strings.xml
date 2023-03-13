@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">HiddenEye v2</string>
-    <string name="col1">Video Path</string>
+    <string name="col1">videoPath</string>
     <string name="col2">age</string>
-    <string name="col3">isCarryingBackPack</string>
+    <string name="col3">isCarryingBackpack</string>
     <string name="col4">isCarryingBag</string>
     <string name="col5">lowerBodyClothing</string>
     <string name="col6">lenLowerBodyClothing</string>

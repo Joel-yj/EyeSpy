@@ -15,8 +15,6 @@ public class VideoAttribute {
     private String colorUpperBodyClothing;
     private String colorLowerBodyClothing;
 
-    private String[] cellValues;
-
     public VideoAttribute(String videoPath, int age, String isCarryingBackpack, String isCarryingBag, String lowerBodyClothing, String lenLowerBodyClothing, String sleeveLength, String hairLength, String isWearingHat, String gender, String colorUpperBodyClothing, String colorLowerBodyClothing) {
         this.videoPath = videoPath;
         this.age = age;
@@ -127,15 +125,5 @@ public class VideoAttribute {
     public void setColorLowerBodyClothing(String colorLowerBodyClothing) {
         this.colorLowerBodyClothing = colorLowerBodyClothing;
     }
-
-    public String getCellValue(int column) {
-        if (column >= 0 && column < cellValues.length) {
-            return cellValues[column];
-        } else {
-            return null;
-        }
-    }
-
-
 
 }
