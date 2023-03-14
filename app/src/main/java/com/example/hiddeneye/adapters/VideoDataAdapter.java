@@ -5,6 +5,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,14 +17,16 @@ import com.example.hiddeneye.models.VideoAttribute;
 
 import java.util.ArrayList;
 
-public class VideoDataAdapter extends RecyclerView.Adapter<VideoDataAdapter.MyViewHolder> {
+public class VideoDataAdapter extends RecyclerView.Adapter<VideoDataAdapter.MyViewHolder> implements Filterable {
 
     Context context;
-    ArrayList<VideoAttribute> list;
+    ArrayList<VideoAttribute> videoAttributesArrayList;
+    ArrayList<VideoAttribute> videoAttributesArrayListFull;
 
-    public VideoDataAdapter(Context context, ArrayList<VideoAttribute> list) {
+    public VideoDataAdapter(Context context, ArrayList<VideoAttribute> videoAttributesArrayList) {
         this.context = context;
-        this.list = list;
+        this.videoAttributesArrayListFull = videoAttributesArrayList;
+        this.videoAttributesArrayList = new ArrayList<>(videoAttributesArrayListFull);
     }
 
     @NonNull
@@ -36,7 +40,7 @@ public class VideoDataAdapter extends RecyclerView.Adapter<VideoDataAdapter.MyVi
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
-        VideoAttribute videoAttribute = list.get(position);
+        VideoAttribute videoAttribute = videoAttributesArrayList.get(position);
         holder.videoPath.setText(videoAttribute.getVideoPath());
         holder.age.setText(String.valueOf(videoAttribute.getAge()));
         holder.isCarryingBackpack.setText(videoAttribute.getIsCarryingBackpack());
@@ -53,8 +57,47 @@ public class VideoDataAdapter extends RecyclerView.Adapter<VideoDataAdapter.MyVi
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return videoAttributesArrayList.size();
     }
+
+    @Override
+    public Filter getFilter() {
+        return newsFilter;
+    }
+
+    private final Filter newsFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+
+            //filter action to be done here
+            ArrayList<VideoAttribute> filteredNewsList = new ArrayList<>();
+
+            if (constraint == null || constraint.length( ) == 0){
+                filteredNewsList.addAll(videoAttributesArrayListFull);
+            }else {
+                String filterPattern = constraint.toString().toLowerCase().trim();
+                for (VideoAttribute videoAttribute : videoAttributesArrayListFull){
+                    if (videoAttribute.getVideoPath().contains(filterPattern))
+                        filteredNewsList.add(videoAttribute);
+                }
+            }
+            FilterResults results = new FilterResults();
+            results.values = filteredNewsList;
+            results.count = filteredNewsList.size();
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+
+            videoAttributesArrayList.clear();
+            videoAttributesArrayList.addAll((ArrayList)filterResults.values);
+            notifyDataSetChanged();
+
+        }
+    };
+
+
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
