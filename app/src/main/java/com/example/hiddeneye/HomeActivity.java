@@ -17,7 +17,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class userlist extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     DatabaseReference database;
@@ -27,7 +27,7 @@ public class userlist extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_userlist);
+        setContentView(R.layout.activity_home);
 
         recyclerView = findViewById(R.id.userList);
         database = FirebaseDatabase.getInstance().getReference("Users");
