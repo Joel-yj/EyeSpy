@@ -79,7 +79,7 @@
                 android:id="@+id/isCarryingBackpack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" Test"
+                android:text="Test"
                 android:textColor="@color/black"
                 android:textSize="20sp"/>
 
@@ -102,7 +102,6 @@
                 android:id="@+id/isCarryingBag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" Test"
                 android:textColor="@color/black"
                 android:textSize="20sp"/>
 

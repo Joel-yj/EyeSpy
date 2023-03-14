@@ -39,17 +39,16 @@ public class VideoDataAdapter extends RecyclerView.Adapter<VideoDataAdapter.MyVi
         VideoAttribute videoAttribute = list.get(position);
         holder.videoPath.setText(videoAttribute.getVideoPath());
         holder.age.setText(String.valueOf(videoAttribute.getAge()));
-        holder.isCarryingBackpack.setText(videoAttribute.isCarryingBackpack());
-        holder.isCarryingBag.setText(videoAttribute.isCarryingBag());
+        holder.isCarryingBackpack.setText(videoAttribute.getIsCarryingBackpack());
+        holder.isCarryingBag.setText(videoAttribute.getIsCarryingBag());
         holder.lowerBodyClothing.setText(videoAttribute.getLowerBodyClothing());
         holder.lenLowerBodyClothing.setText(videoAttribute.getLenLowerBodyClothing());
         holder.sleeveLength.setText(videoAttribute.getSleeveLength());
         holder.hairLength.setText(videoAttribute.getHairLength());
-        holder.isWearingHat.setText(videoAttribute.isWearingHat());
+        holder.isWearingHat.setText(videoAttribute.getIsWearingHat());
         holder.gender.setText(videoAttribute.getGender());
         holder.colorUpperBodyClothing.setText(videoAttribute.getColorUpperBodyClothing());
         holder.colorLowerBodyClothing.setText(videoAttribute.getColorLowerBodyClothing());
-
     }
 
     @Override

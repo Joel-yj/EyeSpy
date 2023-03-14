@@ -46,7 +46,7 @@ public class VideoAttribute {
         this.age = age;
     }
 
-    public String isCarryingBackpack() {
+    public String getIsCarryingBackpack() {
         return isCarryingBackpack;
     }
 
@@ -54,7 +54,7 @@ public class VideoAttribute {
         isCarryingBackpack = carryingBackpack;
     }
 
-    public String isCarryingBag() {
+    public String getIsCarryingBag() {
         return isCarryingBag;
     }
 
@@ -94,7 +94,7 @@ public class VideoAttribute {
         this.hairLength = hairLength;
     }
 
-    public String isWearingHat() {
+    public String getIsWearingHat() {
         return isWearingHat;
     }
 
