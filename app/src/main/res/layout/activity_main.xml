@@ -1,141 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
     tools:context=".MainActivity">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-  <HorizontalScrollView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content">
-
-    <TableLayout
-        android:id="@+id/table_layout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:stretchColumns="*">
-
-      <TableRow
-          android:layout_width="match_parent"
-          android:layout_height="match_parent"
-          android:background="@color/grey">
-
-
-        <TextView
-            android:id="@+id/videoPath"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
-            android:text="@string/col1"
-            android:layout_gravity="center"/>
-
-        <TextView
-            android:id="@+id/age"
-            android:layout_width="wrap_content"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
-            android:text="@string/col2" />
-
-        <TextView
-            android:id="@+id/isCarryingBackpack"
+        <ImageView
+            android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textColor="@android:color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="180dp"
+            android:text="RECYCLER VIEW"
+            android:textColor="@color/black"
+            android:textSize="30sp"
             android:textStyle="bold"
-            android:text="@string/col3" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-          <TextView
-              android:id="@+id/isCarryingBag"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:layout_weight="1"
-              android:textColor="@android:color/white"
-              android:textStyle="bold"
-              android:text="@string/col4" />
 
-          <TextView
-              android:id="@+id/lowerBodyClothing"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:layout_weight="1"
-              android:textColor="@android:color/white"
-              android:textStyle="bold"
-              android:text="@string/col5" />
+        <Button
+            android:id="@+id/recyclerviewbtn"
+            android:layout_width="360dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="344dp"
+            android:backgroundTint="@color/teal_200"
+            android:text="RECYCLER VIEW"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.49"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-          <TextView
-              android:id="@+id/lenLowerBodyClothing"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:layout_weight="1"
-              android:textColor="@android:color/white"
-              android:textStyle="bold"
-              android:text="@string/col6" />
 
-          <TextView
-              android:id="@+id/sleeveLength"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:layout_weight="1"
-              android:textColor="@android:color/white"
-              android:textStyle="bold"
-              android:text="@string/col7" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-          <TextView
-              android:id="@+id/hairLength"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:layout_weight="1"
-              android:textColor="@android:color/white"
-              android:textStyle="bold"
-              android:text="@string/col8" />
+</ScrollView>
 
-          <TextView
-              android:id="@+id/isWearingHat"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:layout_weight="1"
-              android:textColor="@android:color/white"
-              android:textStyle="bold"
-              android:text="@string/col9" />
+<!--<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:orientation="horizontal"-->
+<!--    tools:context=".MainActivity">-->
 
-          <TextView
-              android:id="@+id/gender"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:layout_weight="1"
-              android:textColor="@android:color/white"
-              android:textStyle="bold"
-              android:text="@string/col10" />
 
-          <TextView
-              android:id="@+id/colorUpperBodyClothing"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:layout_weight="1"
-              android:textColor="@android:color/white"
-              android:textStyle="bold"
-              android:text="@string/col11" />
+<!--  <HorizontalScrollView-->
+<!--      android:layout_width="wrap_content"-->
+<!--      android:layout_height="wrap_content">-->
 
-          <TextView
-              android:id="@+id/colorLowerBodyClothing"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:layout_weight="1"
-              android:textColor="@android:color/white"
-              android:textStyle="bold"
-              android:text="@string/col12" />
+<!--    <TableLayout-->
+<!--        android:id="@+id/table_layout"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:stretchColumns="*">-->
 
-      </TableRow>
+<!--      <TableRow-->
+<!--          android:layout_width="match_parent"-->
+<!--          android:layout_height="match_parent"-->
+<!--          android:background="@color/grey">-->
 
-    </TableLayout>
 
-  </HorizontalScrollView>
-  </ScrollView>
+<!--        <TextView-->
+<!--            android:id="@+id/videoPath"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:textColor="@android:color/white"-->
+<!--            android:textStyle="bold"-->
+<!--            android:text="@string/col1"-->
+<!--            android:layout_gravity="center"/>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/age"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:textColor="@android:color/white"-->
+<!--            android:textStyle="bold"-->
+<!--            android:text="@string/col2" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/isCarryingBackpack"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:textColor="@android:color/white"-->
+<!--            android:textStyle="bold"-->
+<!--            android:text="@string/col3" />-->
+
+<!--          <TextView-->
+<!--              android:id="@+id/isCarryingBag"-->
+<!--              android:layout_width="match_parent"-->
+<!--              android:layout_height="wrap_content"-->
+<!--              android:layout_weight="1"-->
+<!--              android:textColor="@android:color/white"-->
+<!--              android:textStyle="bold"-->
+<!--              android:text="@string/col4" />-->
+
+<!--          <TextView-->
+<!--              android:id="@+id/lowerBodyClothing"-->
+<!--              android:layout_width="match_parent"-->
+<!--              android:layout_height="wrap_content"-->
+<!--              android:layout_weight="1"-->
+<!--              android:textColor="@android:color/white"-->
+<!--              android:textStyle="bold"-->
+<!--              android:text="@string/col5" />-->
+
+<!--          <TextView-->
+<!--              android:id="@+id/lenLowerBodyClothing"-->
+<!--              android:layout_width="match_parent"-->
+<!--              android:layout_height="wrap_content"-->
+<!--              android:layout_weight="1"-->
+<!--              android:textColor="@android:color/white"-->
+<!--              android:textStyle="bold"-->
+<!--              android:text="@string/col6" />-->
+
+<!--          <TextView-->
+<!--              android:id="@+id/sleeveLength"-->
+<!--              android:layout_width="match_parent"-->
+<!--              android:layout_height="wrap_content"-->
+<!--              android:layout_weight="1"-->
+<!--              android:textColor="@android:color/white"-->
+<!--              android:textStyle="bold"-->
+<!--              android:text="@string/col7" />-->
+
+<!--          <TextView-->
+<!--              android:id="@+id/hairLength"-->
+<!--              android:layout_width="match_parent"-->
+<!--              android:layout_height="wrap_content"-->
+<!--              android:layout_weight="1"-->
+<!--              android:textColor="@android:color/white"-->
+<!--              android:textStyle="bold"-->
+<!--              android:text="@string/col8" />-->
+
+<!--          <TextView-->
+<!--              android:id="@+id/isWearingHat"-->
+<!--              android:layout_width="match_parent"-->
+<!--              android:layout_height="wrap_content"-->
+<!--              android:layout_weight="1"-->
+<!--              android:textColor="@android:color/white"-->
+<!--              android:textStyle="bold"-->
+<!--              android:text="@string/col9" />-->
+
+<!--          <TextView-->
+<!--              android:id="@+id/gender"-->
+<!--              android:layout_width="match_parent"-->
+<!--              android:layout_height="wrap_content"-->
+<!--              android:layout_weight="1"-->
+<!--              android:textColor="@android:color/white"-->
+<!--              android:textStyle="bold"-->
+<!--              android:text="@string/col10" />-->
+
+<!--          <TextView-->
+<!--              android:id="@+id/colorUpperBodyClothing"-->
+<!--              android:layout_width="match_parent"-->
+<!--              android:layout_height="wrap_content"-->
+<!--              android:layout_weight="1"-->
+<!--              android:textColor="@android:color/white"-->
+<!--              android:textStyle="bold"-->
+<!--              android:text="@string/col11" />-->
+
+<!--          <TextView-->
+<!--              android:id="@+id/colorLowerBodyClothing"-->
+<!--              android:layout_width="match_parent"-->
+<!--              android:layout_height="wrap_content"-->
+<!--              android:layout_weight="1"-->
+<!--              android:textColor="@android:color/white"-->
+<!--              android:textStyle="bold"-->
+<!--              android:text="@string/col12" />-->
+
+<!--      </TableRow>-->
+
+<!--    </TableLayout>-->
+
+<!--  </HorizontalScrollView>-->
+<!--  </ScrollView>-->
 

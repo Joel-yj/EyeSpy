@@ -15,20 +15,20 @@ public class VideoAttribute {
     private String colorUpperBodyClothing;
     private String colorLowerBodyClothing;
 
-    public VideoAttribute(String videoPath, int age, String isCarryingBackpack, String isCarryingBag, String lowerBodyClothing, String lenLowerBodyClothing, String sleeveLength, String hairLength, String isWearingHat, String gender, String colorUpperBodyClothing, String colorLowerBodyClothing) {
-        this.videoPath = videoPath;
-        this.age = age;
-        this.isCarryingBackpack = isCarryingBackpack;
-        this.isCarryingBag = isCarryingBag;
-        this.lowerBodyClothing = lowerBodyClothing;
-        this.lenLowerBodyClothing = lenLowerBodyClothing;
-        this.sleeveLength = sleeveLength;
-        this.hairLength = hairLength;
-        this.isWearingHat = isWearingHat;
-        this.gender = gender;
-        this.colorUpperBodyClothing = colorUpperBodyClothing;
-        this.colorLowerBodyClothing = colorLowerBodyClothing;
-    }
+//    public VideoAttribute(String videoPath, int age, String isCarryingBackpack, String isCarryingBag, String lowerBodyClothing, String lenLowerBodyClothing, String sleeveLength, String hairLength, String isWearingHat, String gender, String colorUpperBodyClothing, String colorLowerBodyClothing) {
+//        this.videoPath = videoPath;
+//        this.age = age;
+//        this.isCarryingBackpack = isCarryingBackpack;
+//        this.isCarryingBag = isCarryingBag;
+//        this.lowerBodyClothing = lowerBodyClothing;
+//        this.lenLowerBodyClothing = lenLowerBodyClothing;
+//        this.sleeveLength = sleeveLength;
+//        this.hairLength = hairLength;
+//        this.isWearingHat = isWearingHat;
+//        this.gender = gender;
+//        this.colorUpperBodyClothing = colorUpperBodyClothing;
+//        this.colorLowerBodyClothing = colorLowerBodyClothing;
+//    }
 
     public String getVideoPath() {
         return videoPath;

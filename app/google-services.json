@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "459985786115",
+    "project_id": "htx-test-d7345",
+    "storage_bucket": "htx-test-d7345.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:459985786115:android:4d69f4503dd958af3c8536",
+        "android_client_info": {
+          "package_name": "com.example.hiddeneye"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "459985786115-kt4uaris3dcjmlk79a9caf15u7a5so9g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDb5ctWsXLxktVvMKLsHBG0iU5yTetpduo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "459985786115-kt4uaris3dcjmlk79a9caf15u7a5so9g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
