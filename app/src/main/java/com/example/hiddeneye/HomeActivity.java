@@ -33,16 +33,15 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         recyclerView = findViewById(R.id.userList);
+
+        // TODO nid to switch to microsoft azure database
         database = FirebaseDatabase.getInstance().getReference("Users");
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         list = new ArrayList<>();
 
-//        TODO Find a way for the home page to have the data populated alrdy for the search
-        myAdapter = new VideoDataAdapter(this,list);
-        recyclerView.setAdapter(myAdapter);
-
+        //TODO use the event listener for cosmosdb
         database.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -50,6 +49,9 @@ public class HomeActivity extends AppCompatActivity {
                     VideoAttribute videoAttribute = dataSnapshot.getValue(VideoAttribute.class);
                     list.add(videoAttribute);
                 }
+                //TODO find a way to fix this lag? need a way to pull data from db before building view
+                myAdapter = new VideoDataAdapter(recyclerView.getContext(),list);
+                recyclerView.setAdapter(myAdapter);
                 myAdapter.notifyDataSetChanged();
             }
 

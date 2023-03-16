@@ -77,6 +77,7 @@ public class VideoDataAdapter extends RecyclerView.Adapter<VideoDataAdapter.MyVi
             }else {
                 String filterPattern = constraint.toString().toLowerCase().trim();
                 for (VideoAttribute videoAttribute : videoAttributesArrayListFull){
+                    // search query is filtered here
                     if (videoAttribute.getVideoPath().contains(filterPattern))
                         filteredNewsList.add(videoAttribute);
                 }
