@@ -4,26 +4,27 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.azure.cosmos.CosmosClient;
+import com.azure.cosmos.CosmosClientBuilder;
+import com.azure.cosmos.models.CosmosQueryRequestOptions;
+import com.azure.cosmos.util.CosmosPagedIterable;
 import com.example.hiddeneye.adapters.VideoDataAdapter;
 import com.example.hiddeneye.models.VideoAttribute;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    DatabaseReference database;
+//    DatabaseReference database;
+
+    private final String DATABASE_ID = "Test";
+    private final String CONTAINER_ID ="test1";
     VideoDataAdapter myAdapter;
     ArrayList<VideoAttribute> list;
 
@@ -35,31 +36,48 @@ public class HomeActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.userList);
 
         // TODO nid to switch to microsoft azure database
-        database = FirebaseDatabase.getInstance().getReference("Users");
+//        database = FirebaseDatabase.getInstance().getReference("Users");
+
+
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         list = new ArrayList<>();
 
         //TODO use the event listener for cosmosdb
-        database.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-                    VideoAttribute videoAttribute = dataSnapshot.getValue(VideoAttribute.class);
-                    list.add(videoAttribute);
-                }
-                //TODO find a way to fix this lag? need a way to pull data from db before building view
-                myAdapter = new VideoDataAdapter(recyclerView.getContext(),list);
-                recyclerView.setAdapter(myAdapter);
-                myAdapter.notifyDataSetChanged();
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+        CosmosClient client = new CosmosClientBuilder().endpoint("https://test-joel.documents.azure.com:443/").key("UvSoY0qjoS9Hqosdz5ndT9hPJAhHKJcXyf2fvDoWVOH8fU912yve3xdquZF0CywSXBoxUGZEN91LACDbsmGDWA==").buildClient();
+        String query = "SELECT * FROM c";
+        CosmosPagedIterable<VideoAttribute> results = client.getDatabase(DATABASE_ID).getContainer(CONTAINER_ID).queryItems(query,new CosmosQueryRequestOptions(),VideoAttribute.class);
 
-            }
-        });
+        for(VideoAttribute videoAttribute : results){
+            list.add(videoAttribute);
+            myAdapter = new VideoDataAdapter(recyclerView.getContext(),list);
+            recyclerView.setAdapter(myAdapter);
+            myAdapter.notifyDataSetChanged();
+        }
+
+
+
+//
+//        database.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+//                    VideoAttribute videoAttribute = dataSnapshot.getValue(VideoAttribute.class);
+//                    list.add(videoAttribute);
+//                }
+//                //TODO find a way to fix this lag? need a way to pull data from db before building view
+//                myAdapter = new VideoDataAdapter(recyclerView.getContext(),list);
+//                recyclerView.setAdapter(myAdapter);
+//                myAdapter.notifyDataSetChanged();
+//            }
+
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
     }
 
     @Override

@@ -118,8 +118,6 @@ public class VideoDataAdapter extends RecyclerView.Adapter<VideoDataAdapter.MyVi
             gender = itemView.findViewById(R.id.gender);
             colorUpperBodyClothing = itemView.findViewById(R.id.colorUpperBodyClothing);
             colorLowerBodyClothing = itemView.findViewById(R.id.colorLowerBodyClothing);
-
-
         }
     }
 }
