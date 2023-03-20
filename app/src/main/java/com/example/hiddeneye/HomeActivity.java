@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -34,6 +35,7 @@ public class HomeActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.userList);
 
+
         // TODO nid to switch to microsoft azure database
         database = FirebaseDatabase.getInstance().getReference("Users");
         recyclerView.setHasFixedSize(true);
@@ -60,6 +62,9 @@ public class HomeActivity extends AppCompatActivity {
 
             }
         });
+
+
+
     }
 
     @Override
@@ -67,6 +72,7 @@ public class HomeActivity extends AppCompatActivity {
 
         getMenuInflater().inflate(R.menu.menu_item,menu);
 
+        CardView cardView = findViewById(R.id.attributeCard);
         MenuItem menuItem = menu.findItem(R.id.search_action);
         SearchView searchView = (SearchView) menuItem.getActionView();
         searchView.setMaxWidth(Integer.MAX_VALUE);
@@ -87,5 +93,7 @@ public class HomeActivity extends AppCompatActivity {
         });
 
         return super.onCreateOptionsMenu(menu);
+
+
     }
 }

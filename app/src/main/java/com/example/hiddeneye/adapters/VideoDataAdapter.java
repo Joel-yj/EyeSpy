@@ -2,6 +2,7 @@ package com.example.hiddeneye.adapters;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,8 +11,10 @@ import android.widget.Filterable;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.hiddeneye.ImageActivity;
 import com.example.hiddeneye.R;
 import com.example.hiddeneye.models.VideoAttribute;
 
@@ -22,7 +25,6 @@ public class VideoDataAdapter extends RecyclerView.Adapter<VideoDataAdapter.MyVi
     Context context;
     ArrayList<VideoAttribute> videoAttributesArrayList;
     ArrayList<VideoAttribute> videoAttributesArrayListFull;
-
     public VideoDataAdapter(Context context, ArrayList<VideoAttribute> videoAttributesArrayList) {
         this.context = context;
         this.videoAttributesArrayListFull = videoAttributesArrayList;
@@ -33,7 +35,6 @@ public class VideoDataAdapter extends RecyclerView.Adapter<VideoDataAdapter.MyVi
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(context).inflate(R.layout.item,parent,false);
-
         return new MyViewHolder(v);
     }
 
@@ -53,6 +54,15 @@ public class VideoDataAdapter extends RecyclerView.Adapter<VideoDataAdapter.MyVi
         holder.gender.setText(videoAttribute.getGender());
         holder.colorUpperBodyClothing.setText(videoAttribute.getColorUpperBodyClothing());
         holder.colorLowerBodyClothing.setText(videoAttribute.getColorLowerBodyClothing());
+
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, ImageActivity.class);
+                context.startActivity(intent);
+            }
+        });
+
     }
 
     @Override
@@ -102,6 +112,7 @@ public class VideoDataAdapter extends RecyclerView.Adapter<VideoDataAdapter.MyVi
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
+        CardView cardView;
         TextView videoPath, age, isCarryingBackpack, isCarryingBag, lowerBodyClothing,lenLowerBodyClothing,sleeveLength,hairLength,isWearingHat,gender,colorUpperBodyClothing,colorLowerBodyClothing;
 
         public MyViewHolder(@NonNull View itemView) {
@@ -118,6 +129,7 @@ public class VideoDataAdapter extends RecyclerView.Adapter<VideoDataAdapter.MyVi
             gender = itemView.findViewById(R.id.gender);
             colorUpperBodyClothing = itemView.findViewById(R.id.colorUpperBodyClothing);
             colorLowerBodyClothing = itemView.findViewById(R.id.colorLowerBodyClothing);
+            cardView =  itemView.findViewById(R.id.attributeCard);
 
 
         }
