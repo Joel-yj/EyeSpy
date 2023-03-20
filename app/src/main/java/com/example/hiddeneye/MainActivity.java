@@ -6,6 +6,7 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.hiddeneye.Activities.HomeActivity;
 import com.example.hiddeneye.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {

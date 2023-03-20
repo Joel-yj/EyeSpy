@@ -1,4 +1,4 @@
-package com.example.hiddeneye.adapters;
+package com.example.hiddeneye.Adapters;
 
 
 import android.content.Context;
@@ -14,11 +14,12 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.hiddeneye.ImageActivity;
+import com.example.hiddeneye.Activities.ImageActivity;
+import com.example.hiddeneye.Models.VideoAttribute;
 import com.example.hiddeneye.R;
-import com.example.hiddeneye.models.VideoAttribute;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class VideoDataAdapter extends RecyclerView.Adapter<VideoDataAdapter.MyViewHolder> implements Filterable {
 
@@ -34,7 +35,7 @@ public class VideoDataAdapter extends RecyclerView.Adapter<VideoDataAdapter.MyVi
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.item,parent,false);
+        View v = LayoutInflater.from(context).inflate(R.layout.attribute_card,parent,false);
         return new MyViewHolder(v);
     }
 
@@ -68,6 +69,12 @@ public class VideoDataAdapter extends RecyclerView.Adapter<VideoDataAdapter.MyVi
     @Override
     public int getItemCount() {
         return videoAttributesArrayList.size();
+    }
+
+    public void updateList(List<VideoAttribute> list){
+        this.videoAttributesArrayList.clear();
+        this.videoAttributesArrayList.addAll(list);
+        notifyDataSetChanged();
     }
 
     @Override
