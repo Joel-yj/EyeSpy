@@ -1,5 +1,9 @@
 <resources>
+
+<!--App Tittle-->
     <string name="app_name">HiddenEye v2</string>
+
+<!--Video Attributes-->
     <string name="col1">videoPath</string>
     <string name="col2">age</string>
     <string name="col3">isCarryingBackpack</string>
@@ -12,4 +16,11 @@
     <string name="col10">gender</string>
     <string name="col11">colorUpperBodyClothing</string>
     <string name="col12">colorLowerBodyClothing</string>
+
+<!--Bottom Nav Bar-->
+    <string name="bottomNav1">Home</string>
+    <string name="bottomNav2">Live Stream</string>
+    <string name="bottomNav3">Settings</string>
+
+
 </resources>
