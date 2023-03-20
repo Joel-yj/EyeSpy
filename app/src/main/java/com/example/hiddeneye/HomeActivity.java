@@ -46,7 +46,10 @@ public class HomeActivity extends AppCompatActivity {
 
         //TODO use the event listener for cosmosdb
 
-        CosmosClient client = new CosmosClientBuilder().endpoint("https://test-joel.documents.azure.com:443/").key("UvSoY0qjoS9Hqosdz5ndT9hPJAhHKJcXyf2fvDoWVOH8fU912yve3xdquZF0CywSXBoxUGZEN91LACDbsmGDWA==").buildClient();
+        CosmosClient client = new CosmosClientBuilder()
+                .endpoint("https://test-joel.documents.azure.com:443/")
+                .key("UvSoY0qjoS9Hqosdz5ndT9hPJAhHKJcXyf2fvDoWVOH8fU912yve3xdquZF0CywSXBoxUGZEN91LACDbsmGDWA==")
+                .buildClient();
         String query = "SELECT * FROM c";
         CosmosPagedIterable<VideoAttribute> results = client.getDatabase(DATABASE_ID).getContainer(CONTAINER_ID).queryItems(query,new CosmosQueryRequestOptions(),VideoAttribute.class);
 
