@@ -6,7 +6,7 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.hiddeneye.Activities.HomeActivity;
+import com.example.hiddeneye.Activities.SqlActivity;
 import com.example.hiddeneye.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent i = new Intent(MainActivity.this, HomeActivity.class);
+                Intent i = new Intent(MainActivity.this, SqlActivity.class);
                 startActivity(i);
             }
         });
