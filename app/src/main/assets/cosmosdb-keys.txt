@@ -1,14 +1,14 @@
+Database ID
+test
+
+Container ID
+test
+
 URI
 https://test-joel.documents.azure.com:443/
 
-Primary key
-FkNeeYURaeRPIS9P5LB7iELPYZNBF8a3gQ10TsTDldXdkCCP3Yv3ACKT0LcdfYKHzbM255zLOJMbACDbRJdaVQ==
+Primary Key
+UvSoY0qjoS9Hqosdz5ndT9hPJAhHKJcXyf2fvDoWVOH8fU912yve3xdquZF0CywSXBoxUGZEN91LACDbsmGDWA==
 
-Primary connection string
-AccountEndpoint=https://test-joel.documents.azure.com:443/;AccountKey=FkNeeYURaeRPIS9P5LB7iELPYZNBF8a3gQ10TsTDldXdkCCP3Yv3ACKT0LcdfYKHzbM255zLOJMbACDbRJdaVQ==;
-
-database name
-Test
-
-container
-test1
+Connection String
+AccountEndpoint=https://test-joel.documents.azure.com:443/;AccountKey=UvSoY0qjoS9Hqosdz5ndT9hPJAhHKJcXyf2fvDoWVOH8fU912yve3xdquZF0CywSXBoxUGZEN91LACDbsmGDWA==;
