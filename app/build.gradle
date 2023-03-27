@@ -60,8 +60,6 @@ dependencies {
     implementation 'com.azure:azure-core:1.37.0'
 
 
-//  Microsoft Azure SQL Database stuff
-    implementation 'com.microsoft.sqlserver:mssql-jdbc:12.2.0.jre8'
 
 
 //  Google Firebase stuff
