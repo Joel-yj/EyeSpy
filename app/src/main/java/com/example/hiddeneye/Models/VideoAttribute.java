@@ -1,4 +1,4 @@
-package com.example.hiddeneye.models;
+package com.example.hiddeneye.Models;
 
 public class VideoAttribute {
 
