@@ -59,12 +59,13 @@ dependencies {
     implementation 'com.azure:azure-cosmos:4.41.0'
     implementation 'com.azure:azure-core:1.37.0'
 
+
 //  Microsoft Azure SQL Database stuff
-    implementation 'com.microsoft.sqlserver:mssql-jdbc:9.2.1.jre8'
+    implementation 'com.microsoft.sqlserver:mssql-jdbc:12.2.0.jre8'
+
 
 //  Google Firebase stuff
     implementation platform('com.google.firebase:firebase-bom:31.2.3')
     implementation 'com.google.firebase:firebase-database'
-
 }
 

@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class SQLRepository {
 
-    private static final String DB_URL = "jdbc:sqlserver://hiddeneye.database.windows.net:1433;database=test";
+    private static final String DB_URL = "jdbc:sqlserver://hiddeneye.database.windows.net:1433;database=test;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
     private static final String USER = "hiddeneye";
     private static final String PASS = "htxQteam3";
 
