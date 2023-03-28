@@ -30,8 +30,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
     packagingOptions {
         resources {
@@ -58,7 +58,7 @@ dependencies {
 //  Microsoft Azure stuff
     implementation 'com.azure:azure-cosmos:4.42.0'
     implementation 'com.azure:azure-core:1.37.0'
-
+    implementation 'com.azure.android:azure-core:1.0.0-beta.12'
 
 //  Google Firebase stuff
     implementation platform('com.google.firebase:firebase-bom:31.2.3')

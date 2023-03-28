@@ -19,6 +19,7 @@ public class cosmosActivity extends AppCompatActivity {
         binding = ActivityCosmosBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+
         CosmosDBRepository cosmosDBRepository = new CosmosDBRepository();
         CosmosContainer container = cosmosDBRepository.getContainer();
 
