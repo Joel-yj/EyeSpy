@@ -1,0 +1,8 @@
+Storage account name
+testjoel1
+
+key
+dgJefDxywGAy/88I7I2HCOAl4e9Z9dDfjUOtHmtUM8mhUhsosIU5Esbtwt57K245xSOLcbOKIo02+AStzKGhAg==
+
+connection string
+DefaultEndpointsProtocol=https;AccountName=testjoel1;AccountKey=dgJefDxywGAy/88I7I2HCOAl4e9Z9dDfjUOtHmtUM8mhUhsosIU5Esbtwt57K245xSOLcbOKIo02+AStzKGhAg==;EndpointSuffix=core.windows.net
