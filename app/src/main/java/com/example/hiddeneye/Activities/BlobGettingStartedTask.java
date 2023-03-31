@@ -57,11 +57,11 @@ public class BlobGettingStartedTask extends AsyncTask<String, Void, Void> {
             // videoattribute objects
             for (VideoAttribute item : videoAttributeList){
                 System.out.println(item.getVideoPath());
+                act.outputText(view, item.getVideoPath());
             }
 
             // binds blob contents to textview
 //            act.outputText(view, blob.downloadText());
-//            act.outputText(view, videoAttribute.getVideoPath());
 
 
 //            //iterating through blobs
