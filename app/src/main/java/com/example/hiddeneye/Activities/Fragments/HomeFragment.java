@@ -73,12 +73,13 @@ public class HomeFragment extends Fragment {
 
         VideoAttributeViewModel viewModel = new ViewModelProvider(this).get(VideoAttributeViewModel.class);
 
-        viewModel.allVideoAttributes.observe(getViewLifecycleOwner(), new Observer<List<VideoAttribute>>() {
+        viewModel.getVideoAttributes().observe(getViewLifecycleOwner(), new Observer<List<VideoAttribute>>() {
             @Override
-            public void onChanged(List<VideoAttribute> videoAttributesList) {
-                myAdapter.updateList(videoAttributesList);
+            public void onChanged(List<VideoAttribute> videoAttributes) {
+                myAdapter.updateList(videoAttributes);
             }
         });
+
 
 
     }

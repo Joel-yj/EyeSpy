@@ -1,22 +1,27 @@
 package com.example.hiddeneye.Models;
 
+import android.app.Application;
+
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
 import com.example.hiddeneye.Repository.VideoAttributeRepository;
 
 import java.util.List;
 
-public class VideoAttributeViewModel extends ViewModel {
+public class VideoAttributeViewModel extends AndroidViewModel {
 
-    private VideoAttributeRepository repository;
-    private MutableLiveData<List<VideoAttribute>> _allVideoAttributes = new MutableLiveData<>();
-    public LiveData<List<VideoAttribute>> allVideoAttributes = _allVideoAttributes;
+    private VideoAttributeRepository mRepository;
+    private LiveData<List<VideoAttribute>> mVideoAttributes;
 
-    public VideoAttributeViewModel(){
-        repository = VideoAttributeRepository.getInstance();
-        repository.loadData(_allVideoAttributes);
+
+    public VideoAttributeViewModel(@NonNull Application application) {
+        super(application);
+        mRepository = new VideoAttributeRepository(application);
+        mVideoAttributes = mRepository.getVideoAttributes();
     }
-
+    public LiveData<List<VideoAttribute>> getVideoAttributes(){
+        return mVideoAttributes;
+    }
 }
