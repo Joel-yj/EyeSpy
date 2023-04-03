@@ -15,7 +15,6 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.hiddeneye.R;
 import com.example.hiddeneye.databinding.ActivityBlobBinding;
-
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
@@ -23,10 +22,7 @@ public class BlobActivity extends AppCompatActivity {
 
     ActivityBlobBinding binding;
 
-    public static final String storageConnectionString =
-            "DefaultEndpointsProtocol=https;" +
-                    "AccountName=testjoel1;" +
-                    "AccountKey=dgJefDxywGAy/88I7I2HCOAl4e9Z9dDfjUOtHmtUM8mhUhsosIU5Esbtwt57K245xSOLcbOKIo02+AStzKGhAg==";
+    public static final String storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=testjoel1;AccountKey=p+cHRZm87TyPoGo1SiVPkMFO3o6GNeklm6YFO+7pGQEkD3XBAIP2BzAMWfvxGHw0RVgXEacViatR+ASteJuNyQ==;EndpointSuffix=core.windows.net";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +58,6 @@ public class BlobActivity extends AppCompatActivity {
     public void runBlobGettingStartedSample(View view) {
         new BlobGettingStartedTask(this, (TextView) findViewById(R.id.textView))
                 .execute();
-
     }
 
 
