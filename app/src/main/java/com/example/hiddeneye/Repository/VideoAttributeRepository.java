@@ -26,7 +26,7 @@ public class VideoAttributeRepository {
 
     private static final String storageConnectionString = "DefaultEndpointsProtocol=https;" +
             "AccountName=testjoel1;" +
-            "AccountKey=dgJefDxywGAy/88I7I2HCOAl4e9Z9dDfjUOtHmtUM8mhUhsosIU5Esbtwt57K245xSOLcbOKIo02+AStzKGhAg==";
+            "AccountKey=w7mc7NKblY8iAj1tFljAJdmhx9BEXsw4A10l9iN92CFO/yuhCJFg3HwhuZ3G1EtoXBHFUHNcvGO/+ASt506U9g==";
     private final CloudBlobClient mBlobClient;
 //    private final CloudBlobContainer mBlobContainer;
 
