@@ -62,7 +62,6 @@ dependencies {
     implementation 'com.microsoft.azure.android:azure-storage-android:2.0.0@aar'
 
 
-
 //  Google Firebase stuff
     implementation platform('com.google.firebase:firebase-bom:31.2.3')
     implementation 'com.google.firebase:firebase-database'

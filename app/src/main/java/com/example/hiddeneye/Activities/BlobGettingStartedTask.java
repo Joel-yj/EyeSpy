@@ -3,22 +3,15 @@ package com.example.hiddeneye.Activities;
 import android.os.AsyncTask;
 import android.widget.TextView;
 
-import com.example.hiddeneye.Models.VideoAttribute;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.microsoft.azure.storage.CloudStorageAccount;
 import com.microsoft.azure.storage.StorageException;
 import com.microsoft.azure.storage.blob.CloudBlobClient;
 import com.microsoft.azure.storage.blob.CloudBlobContainer;
 import com.microsoft.azure.storage.blob.CloudBlockBlob;
 
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.lang.reflect.Type;
+import java.io.IOException;
 import java.net.URISyntaxException;
 import java.security.InvalidKeyException;
-import java.util.ArrayList;
 
 public class BlobGettingStartedTask extends AsyncTask<String, Void, Void> {
 
@@ -37,28 +30,35 @@ public class BlobGettingStartedTask extends AsyncTask<String, Void, Void> {
 
         try {
             // Setup the cloud storage account.
+            System.out.println("1");
             CloudStorageAccount account = CloudStorageAccount
                     .parse(BlobActivity.storageConnectionString);
+            System.out.println("2");
 
             // Create a blob service client
             CloudBlobClient blobClient = account.createCloudBlobClient();
+            System.out.println("3");
+
+            CloudBlobContainer container = blobClient.getContainerReference("test");
+            System.out.println("4");
 
             // Creating blobs
-            CloudBlockBlob blob = container.getBlockBlobReference("android_test.json");
-//            blob.uploadText("test hello");
+            CloudBlockBlob blob = container.getBlockBlobReference("test3.json");
+            System.out.println("5");
+            blob.uploadText("test hello");
 
 
-            // converting json file from blob into videoattribute model object
-            InputStream inputStream = blob.openInputStream();
-            Gson gson = new Gson();
-            Reader reader = new InputStreamReader(inputStream);
-            Type listType = new TypeToken<ArrayList<VideoAttribute>>(){}.getType();
-            ArrayList<VideoAttribute> videoAttributeList = gson.fromJson(reader,listType);
-
-            // videoattribute objects
-            for (VideoAttribute item : videoAttributeList){
-                System.out.println(item.getVideoPath());
-            }
+//            // converting json file from blob into videoattribute model object
+//            InputStream inputStream = blob.openInputStream();
+//            Gson gson = new Gson();
+//            Reader reader = new InputStreamReader(inputStream);
+//            Type listType = new TypeToken<ArrayList<VideoAttribute>>(){}.getType();
+//            ArrayList<VideoAttribute> videoAttributeList = gson.fromJson(reader,listType);
+////
+////            // videoattribute objects
+//            for (VideoAttribute item : videoAttributeList){
+//                System.out.println(item.getVideoPath());
+//            }
 
             // binds blob contents to textview
 //            act.outputText(view, blob.downloadText());
@@ -72,9 +72,11 @@ public class BlobGettingStartedTask extends AsyncTask<String, Void, Void> {
 //                }
 //            }
 
-        } catch (URISyntaxException | InvalidKeyException e) {
+        } catch (URISyntaxException | InvalidKeyException | IOException e) {
+            System.out.println("6");
             throw new RuntimeException(e);
         } catch (StorageException e) {
+            System.out.println("7");
             throw new RuntimeException(e);
         }
 

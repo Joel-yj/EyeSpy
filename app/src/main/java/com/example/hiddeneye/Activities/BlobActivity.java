@@ -21,9 +21,9 @@ import java.io.StringWriter;
 public class BlobActivity extends AppCompatActivity {
 
     ActivityBlobBinding binding;
-
-    public static final String storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=testjoel1;AccountKey=p+cHRZm87TyPoGo1SiVPkMFO3o6GNeklm6YFO+7pGQEkD3XBAIP2BzAMWfvxGHw0RVgXEacViatR+ASteJuNyQ==;EndpointSuffix=core.windows.net";
-
+    public static final String storageConnectionString = "DefaultEndpointsProtocol=https;" +
+            "AccountName=testjoel1;" +
+            "AccountKey=w7mc7NKblY8iAj1tFljAJdmhx9BEXsw4A10l9iN92CFO/yuhCJFg3HwhuZ3G1EtoXBHFUHNcvGO/+ASt506U9g==;";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
