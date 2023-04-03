@@ -5,21 +5,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hiddeneye.Adapters.VideoDataAdapter;
-import com.example.hiddeneye.Models.VideoAttribute;
 import com.example.hiddeneye.Models.VideoAttributeViewModel;
 import com.example.hiddeneye.R;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class HomeFragment extends Fragment {
@@ -27,6 +20,7 @@ public class HomeFragment extends Fragment {
     private RecyclerView recyclerView;
     private VideoAttributeViewModel viewModel;
     private VideoDataAdapter myAdapter;
+
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -58,30 +52,37 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
         recyclerView = view.findViewById(R.id.userList);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
-        myAdapter = new VideoDataAdapter(recyclerView.getContext(), new ArrayList<>());
         recyclerView.setAdapter(myAdapter);
 
-        VideoAttributeViewModel viewModel = new ViewModelProvider(this).get(VideoAttributeViewModel.class);
+        viewModel = new ViewModelProvider(this).get(VideoAttributeViewModel.class);
 
-        viewModel.getVideoAttributes().observe(getViewLifecycleOwner(), new Observer<List<VideoAttribute>>() {
-            @Override
-            public void onChanged(List<VideoAttribute> videoAttributes) {
-                myAdapter.updateList(videoAttributes);
-            }
+        viewModel.init(getContext());
+        viewModel.getVideoAttributes().observe(getViewLifecycleOwner(), videoAttributes -> {
+            myAdapter.updateList(videoAttributes);
         });
-
-
-
+        return  view;
     }
 
+//    @Override
+//    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+//        super.onViewCreated(view, savedInstanceState);
+//
+//        recyclerView = view.findViewById(R.id.userList);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+//        recyclerView.setHasFixedSize(true);
+//        myAdapter = new VideoDataAdapter(recyclerView.getContext(), new ArrayList<>());
+//        recyclerView.setAdapter(myAdapter);
+//
+//        viewModel = new ViewModelProvider(this).get(VideoAttributeViewModel.class);
+//
+//        viewModel.init(getContext());
+//        viewModel.getVideoAttributes().observe(getViewLifecycleOwner(), videoAttributes -> {
+//            myAdapter.updateList(videoAttributes);
+//        });
+//
+//    }
 }

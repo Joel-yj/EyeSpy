@@ -1,22 +1,22 @@
 package com.example.hiddeneye.Repository;
 
-import android.app.Application;
-
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
+import android.content.Context;
 
 import com.example.hiddeneye.Models.VideoAttribute;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.microsoft.azure.storage.CloudStorageAccount;
 import com.microsoft.azure.storage.StorageException;
-import com.microsoft.azure.storage.blob.BlobProperties;
 import com.microsoft.azure.storage.blob.CloudBlobClient;
 import com.microsoft.azure.storage.blob.CloudBlobContainer;
 import com.microsoft.azure.storage.blob.CloudBlockBlob;
 import com.microsoft.azure.storage.blob.ListBlobItem;
 
-import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.Reader;
+import java.lang.reflect.Type;
 import java.net.URISyntaxException;
 import java.security.InvalidKeyException;
 import java.util.ArrayList;
@@ -24,50 +24,36 @@ import java.util.List;
 
 public class VideoAttributeRepository {
 
-    private static final String storageConnectionString = "DefaultEndpointsProtocol=https;" + "AccountName=testjoel1;" + "AccountKey=dgJefDxywGAy/88I7I2HCOAl4e9Z9dDfjUOtHmtUM8mhUhsosIU5Esbtwt57K245xSOLcbOKIo02+AStzKGhAg==";
+    private static final String storageConnectionString = "DefaultEndpointsProtocol=https;" +
+            "AccountName=testjoel1;" +
+            "AccountKey=dgJefDxywGAy/88I7I2HCOAl4e9Z9dDfjUOtHmtUM8mhUhsosIU5Esbtwt57K245xSOLcbOKIo02+AStzKGhAg==";
     private final CloudBlobClient mBlobClient;
-    private final CloudBlobContainer mBlobContainer;
+//    private final CloudBlobContainer mBlobContainer;
 
-    public VideoAttributeRepository(Application application){
-        try {
-            CloudStorageAccount account = CloudStorageAccount.parse(storageConnectionString);
-            mBlobClient = account.createCloudBlobClient();
-            mBlobContainer = mBlobClient.getContainerReference("test");
-        } catch (URISyntaxException | InvalidKeyException | StorageException e) {
-            throw new RuntimeException(e);
-        }
-
+    public VideoAttributeRepository(Context context) throws URISyntaxException, InvalidKeyException {
+        CloudStorageAccount account = CloudStorageAccount.parse(storageConnectionString);
+        mBlobClient = account.createCloudBlobClient();
     }
 
-    public LiveData<List<VideoAttribute>> getVideoAttributes() {
-        MutableLiveData<List<VideoAttribute>> data = new MutableLiveData<>();
+    public List<VideoAttribute> getAllVideoAttributes() throws StorageException, IOException, URISyntaxException {
+        CloudBlobContainer container = mBlobClient.getContainerReference("test");
+        List<VideoAttribute> videoAttributes = new ArrayList<>();
 
-        try {
-            List<VideoAttribute> videoAttributes = new ArrayList<>();
-
-            for (ListBlobItem blobItem : mBlobContainer.listBlobs()) {
-                if (blobItem instanceof CloudBlockBlob) {
-                    CloudBlockBlob blob = (CloudBlockBlob) blobItem;
-
-                    if (blob.getName().endsWith(".json")) {
-                        BlobProperties properties = blob.getProperties();
-
-                        VideoAttribute videoAttribute = new Gson().fromJson(
-                                new BufferedReader(new InputStreamReader(blob.openInputStream())).toString(),
-                                VideoAttribute.class);
-
-                        videoAttributes.add(videoAttribute);
-                    }
+        for (ListBlobItem blobItem : container.listBlobs()){
+            if (blobItem instanceof CloudBlockBlob){
+                CloudBlockBlob blob = (CloudBlockBlob) blobItem;
+                if (blob.getName().endsWith(".json")){
+                    InputStream inputStream = blob.openInputStream();
+                    Gson gson = new Gson();
+                    Reader reader = new InputStreamReader(inputStream);
+                    Type listType = new TypeToken<ArrayList<VideoAttribute>>(){}.getType();
+                    videoAttributes = gson.fromJson(reader,listType);
                 }
             }
-
-            data.setValue(videoAttributes);
-        } catch (Exception e) {
-            e.printStackTrace();
         }
-
-        return data;
+        return videoAttributes;
     }
+
 
 
 }

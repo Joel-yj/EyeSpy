@@ -6,8 +6,6 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Filter;
-import android.widget.Filterable;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -21,16 +19,16 @@ import com.example.hiddeneye.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class VideoDataAdapter extends RecyclerView.Adapter<VideoDataAdapter.MyViewHolder> implements Filterable {
+public class VideoDataAdapter extends RecyclerView.Adapter<VideoDataAdapter.MyViewHolder> {
 
-    Context context;
-    ArrayList<VideoAttribute> videoAttributesArrayList;
-    ArrayList<VideoAttribute> videoAttributesArrayListFull;
-    public VideoDataAdapter(Context context, ArrayList<VideoAttribute> videoAttributesArrayList) {
-        this.context = context;
-        this.videoAttributesArrayListFull = videoAttributesArrayList;
-        this.videoAttributesArrayList = new ArrayList<>(videoAttributesArrayListFull);
-    }
+    private Context context;
+    private List<VideoAttribute> mVideoAttributes = new ArrayList<>();
+//    private ArrayList<VideoAttribute> videoAttributesArrayListFull;
+//    public VideoDataAdapter(Context context, ArrayList<VideoAttribute> videoAttributesArrayList) {
+//        this.context = context;
+//        this.videoAttributesArrayList = videoAttributesArrayList;
+////        this.videoAttributesArrayList = new ArrayList<>(videoAttributesArrayListFull);
+//    }
 
     @NonNull
     @Override
@@ -42,7 +40,7 @@ public class VideoDataAdapter extends RecyclerView.Adapter<VideoDataAdapter.MyVi
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
-        VideoAttribute videoAttribute = videoAttributesArrayList.get(position);
+        VideoAttribute videoAttribute = mVideoAttributes.get(position);
         holder.videoPath.setText(videoAttribute.getVideoPath());
         holder.age.setText(String.valueOf(videoAttribute.getAge()));
         holder.isCarryingBackpack.setText(videoAttribute.getIsCarryingBackpack());
@@ -56,6 +54,7 @@ public class VideoDataAdapter extends RecyclerView.Adapter<VideoDataAdapter.MyVi
         holder.colorUpperBodyClothing.setText(videoAttribute.getColorUpperBodyClothing());
         holder.colorLowerBodyClothing.setText(videoAttribute.getColorLowerBodyClothing());
 
+        //TODO To show picture frame of person with card details
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,52 +67,53 @@ public class VideoDataAdapter extends RecyclerView.Adapter<VideoDataAdapter.MyVi
 
     @Override
     public int getItemCount() {
-        return videoAttributesArrayList.size();
+        return mVideoAttributes.size();
     }
 
     public void updateList(List<VideoAttribute> list){
-        this.videoAttributesArrayList.clear();
-        this.videoAttributesArrayList.addAll(list);
+//        this.videoAttributesArrayList.clear();
+//        this.videoAttributesArrayList.addAll(list);
+        mVideoAttributes = list;
         notifyDataSetChanged();
     }
 
-    @Override
-    public Filter getFilter() {
-        return newsFilter;
-    }
 
-    private final Filter newsFilter = new Filter() {
-        @Override
-        protected FilterResults performFiltering(CharSequence constraint) {
-
-            //filter action to be done here
-            ArrayList<VideoAttribute> filteredNewsList = new ArrayList<>();
-
-            if (constraint == null || constraint.length( ) == 0){
-                filteredNewsList.addAll(videoAttributesArrayListFull);
-            }else {
-                String filterPattern = constraint.toString().toLowerCase().trim();
-                for (VideoAttribute videoAttribute : videoAttributesArrayListFull){
-                    // search query is filtered here
-                    if (videoAttribute.getVideoPath().contains(filterPattern))
-                        filteredNewsList.add(videoAttribute);
-                }
-            }
-            FilterResults results = new FilterResults();
-            results.values = filteredNewsList;
-            results.count = filteredNewsList.size();
-            return results;
-        }
-
-        @Override
-        protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-
-            videoAttributesArrayList.clear();
-            videoAttributesArrayList.addAll((ArrayList)filterResults.values);
-            notifyDataSetChanged();
-
-        }
-    };
+//    public Filter getFilter() {
+//        return newsFilter;
+//    }
+//
+//    private final Filter newsFilter = new Filter() {
+//        @Override
+//        protected FilterResults performFiltering(CharSequence constraint) {
+//
+//            //filter action to be done here
+//            ArrayList<VideoAttribute> filteredNewsList = new ArrayList<>();
+//
+//            if (constraint == null || constraint.length( ) == 0){
+//                filteredNewsList.addAll(videoAttributesArrayListFull);
+//            }else {
+//                String filterPattern = constraint.toString().toLowerCase().trim();
+//                for (VideoAttribute videoAttribute : videoAttributesArrayListFull){
+//                    // search query is filtered here
+//                    if (videoAttribute.getVideoPath().contains(filterPattern))
+//                        filteredNewsList.add(videoAttribute);
+//                }
+//            }
+//            FilterResults results = new FilterResults();
+//            results.values = filteredNewsList;
+//            results.count = filteredNewsList.size();
+//            return results;
+//        }
+//
+//        @Override
+//        protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+//
+//            videoAttributesArrayList.clear();
+//            videoAttributesArrayList.addAll((ArrayList)filterResults.values);
+//            notifyDataSetChanged();
+//
+//        }
+//    };
 
 
 
@@ -137,8 +137,6 @@ public class VideoDataAdapter extends RecyclerView.Adapter<VideoDataAdapter.MyVi
             colorUpperBodyClothing = itemView.findViewById(R.id.colorUpperBodyClothing);
             colorLowerBodyClothing = itemView.findViewById(R.id.colorLowerBodyClothing);
             cardView =  itemView.findViewById(R.id.attributeCard);
-
-
         }
     }
 }
