@@ -60,11 +60,11 @@ public class HomeFragment extends Fragment {
 
         viewModel = new ViewModelProvider(this).get(VideoAttributeViewModel.class);
 
-        viewModel.init(getContext());
+        viewModel.loadVideoAttributes();
         viewModel.getVideoAttributes().observe(getViewLifecycleOwner(), videoAttributes -> {
             myAdapter.updateList(videoAttributes);
         });
-        return  view;
+        return view;
     }
 
 //    @Override

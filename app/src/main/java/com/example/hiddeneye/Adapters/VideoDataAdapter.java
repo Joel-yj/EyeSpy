@@ -33,7 +33,7 @@ public class VideoDataAdapter extends RecyclerView.Adapter<VideoDataAdapter.MyVi
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.attribute_card,parent,false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.attribute_card,parent,false);
         return new MyViewHolder(v);
     }
 
@@ -70,10 +70,10 @@ public class VideoDataAdapter extends RecyclerView.Adapter<VideoDataAdapter.MyVi
         return mVideoAttributes.size();
     }
 
-    public void updateList(List<VideoAttribute> list){
+    public void updateList(List<VideoAttribute> mVideoAttributes){
 //        this.videoAttributesArrayList.clear();
 //        this.videoAttributesArrayList.addAll(list);
-        mVideoAttributes = list;
+        this.mVideoAttributes = mVideoAttributes;
         notifyDataSetChanged();
     }
 
