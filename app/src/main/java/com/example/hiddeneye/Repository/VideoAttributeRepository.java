@@ -1,44 +1,69 @@
 package com.example.hiddeneye.Repository;
 
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+
 import com.example.hiddeneye.Models.VideoAttribute;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.microsoft.azure.storage.CloudStorageAccount;
 import com.microsoft.azure.storage.blob.CloudBlobClient;
 import com.microsoft.azure.storage.blob.CloudBlobContainer;
 import com.microsoft.azure.storage.blob.CloudBlockBlob;
 
-import java.net.URISyntaxException;
-import java.security.InvalidKeyException;
-import java.util.ArrayList;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.lang.reflect.Type;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 public class VideoAttributeRepository {
+    private MutableLiveData<List<VideoAttribute>> videoAttributesLiveData;
 
     private static final String storageConnectionString = "DefaultEndpointsProtocol=https;" +
             "AccountName=testjoel1;" +
             "AccountKey=w7mc7NKblY8iAj1tFljAJdmhx9BEXsw4A10l9iN92CFO/yuhCJFg3HwhuZ3G1EtoXBHFUHNcvGO/+ASt506U9g==";
-    private final CloudBlobClient mBlobClient;
-    private ExecutorService executorService;
 
-    public VideoAttributeRepository() throws URISyntaxException, InvalidKeyException {
-        CloudStorageAccount account = CloudStorageAccount.parse(storageConnectionString);
-        mBlobClient = account.createCloudBlobClient();
-        executorService = Executors.newFixedThreadPool(5);
+    public VideoAttributeRepository(){
+        videoAttributesLiveData = new MutableLiveData<>();
     }
 
-    public void getVideoAttributes(Callback callback){
-        executorService.execute(()->{
-            try{
-                CloudBlobContainer container = mBlobClient.getContainerReference("test");
-                List<VideoAttribute> videoAttributeList = new ArrayList<>();
-                CloudBlockBlob blob = container.getBlockBlobReference("android_test.json");
-                String jsonContent = blob.downloadText();
-                Gson gson = new Gson();
-                System.out.print(gson.fromJson(jsonContent,VideoAttribute.class).getVideoPath());
+    public void getVideoAttributesFromBlobStorage(){
+        Executor serialExecutor = Executors.newSingleThreadExecutor();
 
-//                for (ListBlobItem blobItem : container.listBlobs()){
+        serialExecutor.execute(new Runnable() {
+            @Override
+            public void run() {
+                try{
+                    CloudStorageAccount account = CloudStorageAccount.parse(storageConnectionString);
+                    CloudBlobClient mBlobClient = account.createCloudBlobClient();
+                    CloudBlobContainer container = mBlobClient.getContainerReference("test");
+                    CloudBlockBlob blob = container.getBlockBlobReference("android_test.json");
+                    InputStream inputStream = blob.openInputStream();
+                    Gson gson = new Gson();
+                    Reader reader = new InputStreamReader(inputStream);
+                    Type listType = new TypeToken<List<VideoAttribute>>(){}.getType();
+                    List<VideoAttribute> videoAttributes = gson.fromJson(reader,listType);
+                    videoAttributesLiveData.postValue(videoAttributes);
+                    // able to get model object
+                    System.out.println(videoAttributes.get(1).getVideoPath());
+
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        });
+
+    }
+
+    public LiveData<List<VideoAttribute>> getVideoAttributesLiveData(){
+        return videoAttributesLiveData;
+    }
+
+}
+//    for (ListBlobItem blobItem : container.listBlobs()){
 //                    if (blobItem instanceof CloudBlockBlob){
 //                        CloudBlockBlob jsonBlob = (CloudBlockBlob) blobItem;
 //                        String jsonContent = jsonBlob.downloadText();
@@ -49,37 +74,5 @@ public class VideoAttributeRepository {
 //
 //                    }
 //                }
-                callback.onVideoAttributesLoaded(videoAttributeList);
-            }catch (Exception e){
-                callback.onError(e);
-            }
-        });
-    }
-
-    public interface Callback {
-        void onVideoAttributesLoaded(List<VideoAttribute> videoAttributes);
-        void onError(Exception e);
-    }
-
-//    public List<VideoAttribute> getAllVideoAttributes() throws StorageException, IOException, URISyntaxException {
-//        CloudBlobContainer container = mBlobClient.getContainerReference("test");
-//        List<VideoAttribute> videoAttributes = new ArrayList<>();
-//
-//        for (ListBlobItem blobItem : container.listBlobs()){
-//            if (blobItem instanceof CloudBlockBlob){
-//                CloudBlockBlob blob = (CloudBlockBlob) blobItem;
-//                if (blob.getName().endsWith(".json")){
-//                    InputStream inputStream = blob.openInputStream();
-//                    Gson gson = new Gson();
-//                    Reader reader = new InputStreamReader(inputStream);
-//                    Type listType = new TypeToken<ArrayList<VideoAttribute>>(){}.getType();
-//                    videoAttributes = gson.fromJson(reader,listType);
-//                }
-//            }
-//        }
-//        return videoAttributes;
-//    }
 
 
-
-}

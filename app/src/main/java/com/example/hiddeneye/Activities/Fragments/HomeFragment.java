@@ -6,13 +6,18 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hiddeneye.Adapters.VideoDataAdapter;
+import com.example.hiddeneye.Models.VideoAttribute;
 import com.example.hiddeneye.Models.VideoAttributeViewModel;
 import com.example.hiddeneye.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class HomeFragment extends Fragment {
@@ -56,16 +61,23 @@ public class HomeFragment extends Fragment {
         recyclerView = view.findViewById(R.id.userList);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
+
+        myAdapter = new VideoDataAdapter(new ArrayList<>());
         recyclerView.setAdapter(myAdapter);
 
         viewModel = new ViewModelProvider(this).get(VideoAttributeViewModel.class);
 
-        viewModel.loadVideoAttributes();
-        viewModel.getVideoAttributes().observe(getViewLifecycleOwner(), videoAttributes -> {
-            myAdapter.updateList(videoAttributes);
+        viewModel.getVideoAttributes().observe(getViewLifecycleOwner(), new Observer<List<VideoAttribute>>() {
+            @Override
+            public void onChanged(List<VideoAttribute> videoAttributes) {
+                myAdapter.updateList(videoAttributes);
+            }
         });
+        viewModel.refreshVideoAttributes();
+
         return view;
     }
+}
 
 //    @Override
 //    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -85,4 +97,3 @@ public class HomeFragment extends Fragment {
 //        });
 //
 //    }
-}

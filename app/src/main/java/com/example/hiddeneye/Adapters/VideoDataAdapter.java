@@ -16,19 +16,17 @@ import com.example.hiddeneye.Activities.ImageActivity;
 import com.example.hiddeneye.Models.VideoAttribute;
 import com.example.hiddeneye.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class VideoDataAdapter extends RecyclerView.Adapter<VideoDataAdapter.MyViewHolder> {
 
     private Context context;
-    private List<VideoAttribute> mVideoAttributes = new ArrayList<>();
+    private List<VideoAttribute> mVideoAttributes;
 //    private ArrayList<VideoAttribute> videoAttributesArrayListFull;
-//    public VideoDataAdapter(Context context, ArrayList<VideoAttribute> videoAttributesArrayList) {
-//        this.context = context;
-//        this.videoAttributesArrayList = videoAttributesArrayList;
-////        this.videoAttributesArrayList = new ArrayList<>(videoAttributesArrayListFull);
-//    }
+    public VideoDataAdapter(List<VideoAttribute> videoAttributesArrayList) {
+        this.mVideoAttributes = videoAttributesArrayList;
+//        this.videoAttributesArrayList = new ArrayList<>(videoAttributesArrayListFull);
+    }
 
     @NonNull
     @Override
