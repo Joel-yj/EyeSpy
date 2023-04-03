@@ -62,7 +62,7 @@ public class HomeFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
 
-        myAdapter = new VideoDataAdapter(new ArrayList<>());
+        myAdapter = new VideoDataAdapter(this.getContext(),new ArrayList<>());
         recyclerView.setAdapter(myAdapter);
 
         viewModel = new ViewModelProvider(this).get(VideoAttributeViewModel.class);

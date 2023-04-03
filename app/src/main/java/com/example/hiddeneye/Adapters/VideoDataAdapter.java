@@ -23,8 +23,9 @@ public class VideoDataAdapter extends RecyclerView.Adapter<VideoDataAdapter.MyVi
     private Context context;
     private List<VideoAttribute> mVideoAttributes;
 //    private ArrayList<VideoAttribute> videoAttributesArrayListFull;
-    public VideoDataAdapter(List<VideoAttribute> videoAttributesArrayList) {
+    public VideoDataAdapter(Context context, List<VideoAttribute> videoAttributesArrayList) {
         this.mVideoAttributes = videoAttributesArrayList;
+        this.context = context;
 //        this.videoAttributesArrayList = new ArrayList<>(videoAttributesArrayListFull);
     }
 
@@ -52,7 +53,7 @@ public class VideoDataAdapter extends RecyclerView.Adapter<VideoDataAdapter.MyVi
         holder.colorUpperBodyClothing.setText(videoAttribute.getColorUpperBodyClothing());
         holder.colorLowerBodyClothing.setText(videoAttribute.getColorLowerBodyClothing());
 
-        //TODO To show picture frame of person with card details
+        //TODO To show picture frame of person with card details that is drawn from another container
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
