@@ -35,6 +35,7 @@ public class VideoAttributeRepository {
 
         serialExecutor.execute(new Runnable() {
             @Override
+            //TODO iterate through different CloudBlockBlob in container
             public void run() {
                 try{
                     CloudStorageAccount account = CloudStorageAccount.parse(storageConnectionString);
@@ -47,9 +48,6 @@ public class VideoAttributeRepository {
                     Type listType = new TypeToken<List<VideoAttribute>>(){}.getType();
                     List<VideoAttribute> videoAttributes = gson.fromJson(reader,listType);
                     videoAttributesLiveData.postValue(videoAttributes);
-                    // able to get model object
-                    System.out.println(videoAttributes.get(1).getVideoPath());
-
                 }catch (Exception e){
                     e.printStackTrace();
                 }
