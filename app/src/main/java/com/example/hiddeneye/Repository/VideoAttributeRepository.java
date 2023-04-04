@@ -22,6 +22,7 @@ import java.util.concurrent.Executors;
 public class VideoAttributeRepository {
     private MutableLiveData<List<VideoAttribute>> videoAttributesLiveData;
 
+    //TODO Find a way to protect connectionString
     private static final String storageConnectionString = "DefaultEndpointsProtocol=https;" +
             "AccountName=testjoel1;" +
             "AccountKey=w7mc7NKblY8iAj1tFljAJdmhx9BEXsw4A10l9iN92CFO/yuhCJFg3HwhuZ3G1EtoXBHFUHNcvGO/+ASt506U9g==";

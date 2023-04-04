@@ -6,3 +6,14 @@ dgJefDxywGAy/88I7I2HCOAl4e9Z9dDfjUOtHmtUM8mhUhsosIU5Esbtwt57K245xSOLcbOKIo02+ASt
 
 connection string
 DefaultEndpointsProtocol=https;AccountName=testjoel1;AccountKey=dgJefDxywGAy/88I7I2HCOAl4e9Z9dDfjUOtHmtUM8mhUhsosIU5Esbtwt57K245xSOLcbOKIo02+AStzKGhAg==;EndpointSuffix=core.windows.net
+
+
+Cognitive Search
+endpoint
+https://test-joel.search.windows.net
+
+Key
+ApZGjq5ub4YYtJhr65j8lfWIpMva8Qes7pbCHDT51nAzSeCIPW0x
+
+index name
+azureblob-test-index
