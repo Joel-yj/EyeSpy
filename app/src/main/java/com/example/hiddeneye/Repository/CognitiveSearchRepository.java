@@ -19,11 +19,10 @@ import java.util.concurrent.Executors;
 public class CognitiveSearchRepository {
 
     //TODO protect apikey (same as storageblob)
-    public static final String endpoint = "https://test-joel.search.windows.net";
-    public static final String apikey = "ApZGjq5ub4YYtJhr65j8lfWIpMva8Qes7pbCHDT51nAzSeCIPW0x";
-    public AzureKeyCredential adminKey = new AzureKeyCredential(apikey);
-    public static final String indexName = "azureblob-test-index";
-    private SearchClient searchClient;
+    String endpoint = "https://test-joel.search.windows.net";
+    AzureKeyCredential adminKey = new AzureKeyCredential("ApZGjq5ub4YYtJhr65j8lfWIpMva8Qes7pbCHDT51nAzSeCIPW0x");
+    String indexName = "azureblob-test-index";
+    SearchClient searchClient;
     private MutableLiveData<List<VideoAttribute>> videoAttributesLiveData;
 
 
@@ -43,11 +42,13 @@ public class CognitiveSearchRepository {
                 System.out.println("run method block");
                 try {
                     System.out.println("client builder block");
-
+                    System.out.println(adminKey);
                     searchClient = new SearchClientBuilder()
+                            .credential(adminKey)
                             .endpoint(endpoint)
                             .indexName(indexName)
                             .buildClient();
+
 
                     System.out.println("search options block");
                     SearchOptions options = new SearchOptions();
