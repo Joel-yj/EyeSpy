@@ -29,7 +29,6 @@ android {
     }
 
     compileOptions {
-        coreLibraryDesugaringEnabled true
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
     }
@@ -57,10 +56,8 @@ dependencies {
 //  Azure blob storage
     implementation 'com.microsoft.azure.android:azure-storage-android:2.0.0@aar'
 
-//  Azure Cognitive Search
-    implementation 'com.azure:azure-core:1.0.0-beta.12'
-    implementation 'com.azure:azure-search-documents:11.6.0-beta.5'
-    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.3'
+//  Volley - RESTful api requests
+    implementation 'com.android.volley:volley:1.2.1'
 }
 
 
