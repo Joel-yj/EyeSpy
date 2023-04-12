@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
@@ -16,16 +17,9 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.hiddeneye.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link SettingsFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class SettingsFragment extends Fragment {
 
-    String endpoint = "https://test-joel.search.windows.net";
-    String apikey = "ApZGjq5ub4YYtJhr65j8lfWIpMva8Qes7pbCHDT51nAzSeCIPW0x";
-    String indexName = "azureblob-test-index";
 
     public SettingsFragment() {
         // Required empty public constructor
@@ -41,21 +35,24 @@ public class SettingsFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
 
+        super.onCreate(savedInstanceState);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_settings,container,false);
+        TextView textView = view.findViewById(R.id.testview);
 
         RequestQueue queue = Volley.newRequestQueue(getActivity());
-        String url = "https://hiddeneyebackend.azurewebsites.net/hello";
+        String query = "*";
+        String url = "https://hiddeneyebackend.azurewebsites.net/search?query=" + query;
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+                textView.setText(response);
                 Log.d("MyApp", "Response" + response);
             }
         }, new Response.ErrorListener() {
@@ -65,9 +62,9 @@ public class SettingsFragment extends Fragment {
             }
         });
 
-
         queue.add(stringRequest);
 
-        return inflater.inflate(R.layout.fragment_settings, container, false);
+        return view;
+
     }
 }

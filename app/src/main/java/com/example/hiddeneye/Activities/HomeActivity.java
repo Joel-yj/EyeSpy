@@ -9,8 +9,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.hiddeneye.Activities.Fragments.HomeFragment;
 import com.example.hiddeneye.Activities.Fragments.LiveStreamFragment;
-import com.example.hiddeneye.R;
 import com.example.hiddeneye.Activities.Fragments.SettingsFragment;
+import com.example.hiddeneye.R;
 import com.example.hiddeneye.databinding.ActivityHomeBinding;
 
 public class HomeActivity extends AppCompatActivity {
@@ -81,34 +81,5 @@ public class HomeActivity extends AppCompatActivity {
         fragmentTransaction.commit();
     }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//
-//        getMenuInflater().inflate(R.menu.menu_item,menu);
-//
-//        CardView cardView = findViewById(R.id.attributeCard);
-//        MenuItem menuItem = menu.findItem(R.id.search_action);
-//        SearchView searchView = (SearchView) menuItem.getActionView();
-//        searchView.setMaxWidth(Integer.MAX_VALUE);
-//        searchView.setQueryHint("Type a search");
-//
-//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String query) {
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String newText) {
-//                myAdapter.getFilter().filter(newText);
-//
-//                return false;
-//            }
-//        });
-//
-//        return super.onCreateOptionsMenu(menu);
-//
-//
-//    }
 
 }
