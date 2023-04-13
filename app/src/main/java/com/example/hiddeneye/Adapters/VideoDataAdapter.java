@@ -16,17 +16,15 @@ import com.example.hiddeneye.Activities.ImageActivity;
 import com.example.hiddeneye.Models.VideoAttribute;
 import com.example.hiddeneye.R;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class VideoDataAdapter extends RecyclerView.Adapter<VideoDataAdapter.MyViewHolder> {
 
     private Context context;
-    private List<VideoAttribute> mVideoAttributes;
-//    private ArrayList<VideoAttribute> videoAttributesArrayListFull;
-    public VideoDataAdapter(Context context, List<VideoAttribute> videoAttributesArrayList) {
-        this.mVideoAttributes = videoAttributesArrayList;
+    private ArrayList<VideoAttribute> videoAttributeList;
+    public VideoDataAdapter(Context context, ArrayList<VideoAttribute> videoAttributesArrayList) {
+        this.videoAttributeList = videoAttributesArrayList;
         this.context = context;
-//        this.videoAttributesArrayList = new ArrayList<>(videoAttributesArrayListFull);
     }
 
     @NonNull
@@ -39,7 +37,7 @@ public class VideoDataAdapter extends RecyclerView.Adapter<VideoDataAdapter.MyVi
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
-        VideoAttribute videoAttribute = mVideoAttributes.get(position);
+        VideoAttribute videoAttribute = videoAttributeList.get(position);
         holder.videoPath.setText(videoAttribute.getVideoPath());
         holder.age.setText(String.valueOf(videoAttribute.getAge()));
         holder.isCarryingBackpack.setText(videoAttribute.getIsCarryingBackpack());
@@ -66,53 +64,13 @@ public class VideoDataAdapter extends RecyclerView.Adapter<VideoDataAdapter.MyVi
 
     @Override
     public int getItemCount() {
-        return mVideoAttributes.size();
+        return videoAttributeList.size();
     }
 
-    public void updateList(List<VideoAttribute> mVideoAttributes){
-//        this.videoAttributesArrayList.clear();
-//        this.videoAttributesArrayList.addAll(list);
-        this.mVideoAttributes = mVideoAttributes;
+    public void updateList(ArrayList<VideoAttribute> mVideoAttributes){
+        this.videoAttributeList = mVideoAttributes;
         notifyDataSetChanged();
     }
-
-
-//    public Filter getFilter() {
-//        return newsFilter;
-//    }
-//
-//    private final Filter newsFilter = new Filter() {
-//        @Override
-//        protected FilterResults performFiltering(CharSequence constraint) {
-//
-//            //filter action to be done here
-//            ArrayList<VideoAttribute> filteredNewsList = new ArrayList<>();
-//
-//            if (constraint == null || constraint.length( ) == 0){
-//                filteredNewsList.addAll(videoAttributesArrayListFull);
-//            }else {
-//                String filterPattern = constraint.toString().toLowerCase().trim();
-//                for (VideoAttribute videoAttribute : videoAttributesArrayListFull){
-//                    // search query is filtered here
-//                    if (videoAttribute.getVideoPath().contains(filterPattern))
-//                        filteredNewsList.add(videoAttribute);
-//                }
-//            }
-//            FilterResults results = new FilterResults();
-//            results.values = filteredNewsList;
-//            results.count = filteredNewsList.size();
-//            return results;
-//        }
-//
-//        @Override
-//        protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-//
-//            videoAttributesArrayList.clear();
-//            videoAttributesArrayList.addAll((ArrayList)filterResults.values);
-//            notifyDataSetChanged();
-//
-//        }
-//    };
 
 
 
