@@ -52,7 +52,7 @@ public class HomeActivity extends AppCompatActivity {
 //
 //        list = new ArrayList<>();
 //
-//        //TODO use the event listener for cosmosdb
+//        //TODO use the event listener for azure blob storage
 //        database.addValueEventListener(new ValueEventListener() {
 //            @Override
 //            public void onDataChange(@NonNull DataSnapshot snapshot) {
