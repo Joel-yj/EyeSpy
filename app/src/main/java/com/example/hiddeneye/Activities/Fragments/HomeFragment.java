@@ -29,7 +29,6 @@ import com.example.hiddeneye.Adapters.VideoDataAdapter;
 import com.example.hiddeneye.Models.VideoAttribute;
 import com.example.hiddeneye.Models.VideoAttributeViewModel;
 import com.example.hiddeneye.R;
-import com.example.hiddeneye.databinding.FragmentHomeBinding;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -43,21 +42,10 @@ public class HomeFragment extends Fragment{
     private VideoAttributeViewModel viewModel;
     private VideoDataAdapter myAdapter;
 
-    FragmentHomeBinding binding;
-
     public HomeFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment HomeFragment1.
-     */
-    // TODO: Rename and change types and number of parameters
     public static HomeFragment newInstance(String param1, String param2) {
         HomeFragment fragment = new HomeFragment();
         Bundle args = new Bundle();
