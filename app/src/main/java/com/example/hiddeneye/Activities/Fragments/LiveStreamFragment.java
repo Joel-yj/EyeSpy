@@ -4,22 +4,22 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.MediaController;
-import android.widget.ProgressBar;
-import android.widget.VideoView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.hiddeneye.R;
+import com.google.android.exoplayer2.ExoPlayer;
+import com.google.android.exoplayer2.MediaItem;
+import com.google.android.exoplayer2.ui.StyledPlayerView;
 
 public class LiveStreamFragment extends Fragment {
 
-    VideoView videoView;
-    MediaController mediaController;
-    ProgressBar progressBar;
-    String URL = "rtsp://zephyr.rtsp.stream/pattern?streamKey=acbf29f8e8ff1e0bd8d6b262092f4c76";
+    StyledPlayerView playerView;
+    ExoPlayer exoPlayer;
+//    String URL = "rtsp://rtspstream.com/ball";
+    String URL = "https://5b44cf20b0388.streamlock.net:8443/vod/smil:bbb.smil/playlist.m3u8";
 
 
     public LiveStreamFragment() {
@@ -51,6 +51,8 @@ public class LiveStreamFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        playerView = view.findViewById(R.id.exoplayer);
+
 
 //        videoView = view.findViewById(R.id.videoView);
 //        progressBar = view.findViewById(R.id.progressBar);
@@ -68,4 +70,34 @@ public class LiveStreamFragment extends Fragment {
 //            }
 //        });
     }
+
+    public void initiliasePlayer() {
+        exoPlayer = new ExoPlayer.Builder(getContext()).build();
+        playerView.setPlayer(exoPlayer);
+
+        MediaItem mediaItem = new MediaItem.Builder().setUri(URL)
+                        .setLiveConfiguration(new MediaItem.LiveConfiguration.Builder().setMaxPlaybackSpeed(1.02f).build()).build();
+
+        exoPlayer.setMediaItem(mediaItem);
+        exoPlayer.prepare();
+        exoPlayer.play();
+
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        initiliasePlayer();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        if (exoPlayer == null){
+            initiliasePlayer();
+        }
+    }
+
 }
