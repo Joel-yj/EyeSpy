@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<HorizontalScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/horizontal_scroll_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -25,7 +24,7 @@
                 android:padding="16dp"
                 android:text="@string/col1"
                 android:textColor="@android:color/black"
-                android:textSize="18sp"/>
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/header_2"
@@ -36,7 +35,7 @@
                 android:padding="16dp"
                 android:text="@string/col2"
                 android:textColor="@android:color/black"
-                android:textSize="18sp"/>
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/header_3"
@@ -47,7 +46,7 @@
                 android:padding="16dp"
                 android:text="@string/col3"
                 android:textColor="@android:color/black"
-                android:textSize="18sp"/>
+                android:textSize="18sp" />
 
             <!-- Add more headers as needed -->
 

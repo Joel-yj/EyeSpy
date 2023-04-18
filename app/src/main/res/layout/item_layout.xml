@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:stretchColumns="1,2,3,4,5,6,7,8,9,10,11,12">
+
+    <TableRow>
+        <TextView
+            android:id="@+id/col1"
+            android:textSize="16dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:layout_column="1"/>
+        <TextView
+            android:id="@+id/col2"
+            android:textSize="16dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:layout_column="1"/>
+        <TextView
+            android:id="@+id/col3"
+            android:textSize="16dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:layout_column="1"/>
+        <TextView
+            android:id="@+id/col4"
+            android:textSize="16dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:layout_column="1"/>
+        <TextView
+            android:id="@+id/col5"
+            android:textSize="16dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:layout_column="1"/>
+        <TextView
+            android:id="@+id/col6"
+            android:textSize="16dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:layout_column="1"/>
+        <TextView
+            android:id="@+id/col7"
+            android:textSize="16dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:layout_column="1"/>
+        <TextView
+            android:id="@+id/col8"
+            android:textSize="16dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:layout_column="1"/>
+        <TextView
+            android:id="@+id/col9"
+            android:textSize="16dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:layout_column="1"/>
+        <TextView
+            android:id="@+id/col10"
+            android:textSize="16dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:layout_column="1"/>
+        <TextView
+            android:id="@+id/col11"
+            android:textSize="16dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:layout_column="1"/>
+        <TextView
+            android:id="@+id/col12"
+            android:textSize="16dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:layout_column="1"/>
+
+
+
+    </TableRow>
+
+
+</TableLayout>
