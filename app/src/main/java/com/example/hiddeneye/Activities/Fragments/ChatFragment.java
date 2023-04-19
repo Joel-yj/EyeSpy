@@ -11,16 +11,16 @@ import androidx.fragment.app.Fragment;
 import com.example.hiddeneye.R;
 
 
-public class SettingsFragment extends Fragment {
+public class ChatFragment extends Fragment {
 
 
-    public SettingsFragment() {
+    public ChatFragment() {
         // Required empty public constructor
     }
 
     // TODO: Rename and change types and number of parameters
-    public static SettingsFragment newInstance(String param1, String param2) {
-        SettingsFragment fragment = new SettingsFragment();
+    public static ChatFragment newInstance(String param1, String param2) {
+        ChatFragment fragment = new ChatFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -35,7 +35,7 @@ public class SettingsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_settings,container,false);
+        View view = inflater.inflate(R.layout.fragment_chat,container,false);
         TextView textView = view.findViewById(R.id.testview);
 
 

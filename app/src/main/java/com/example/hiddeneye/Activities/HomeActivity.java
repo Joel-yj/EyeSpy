@@ -9,7 +9,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.hiddeneye.Activities.Fragments.HomeFragment;
 import com.example.hiddeneye.Activities.Fragments.LiveStreamFragment;
-import com.example.hiddeneye.Activities.Fragments.SettingsFragment;
+import com.example.hiddeneye.Activities.Fragments.ChatFragment;
 import com.example.hiddeneye.R;
 import com.example.hiddeneye.databinding.ActivityHomeBinding;
 
@@ -33,8 +33,8 @@ public class HomeActivity extends AppCompatActivity {
                 case R.id.liveStream:
                     replaceFragment(new LiveStreamFragment());
                     break;
-                case R.id.settings:
-                    replaceFragment(new SettingsFragment());
+                case R.id.chat:
+                    replaceFragment(new ChatFragment());
                     break;
             }
 

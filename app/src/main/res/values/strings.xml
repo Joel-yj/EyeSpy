@@ -20,7 +20,7 @@
     <!--Bottom Nav Bar-->
     <string name="bottomNav1">Home</string>
     <string name="bottomNav2">Live Stream</string>
-    <string name="bottomNav3">Settings</string>
+    <string name="bottomNav3">Chat</string>
 
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
