@@ -18,8 +18,8 @@ public class LiveStreamFragment extends Fragment {
 
     StyledPlayerView playerView;
     ExoPlayer exoPlayer;
-//    String URL = "rtsp://rtspstream.com/ball";
-    String URL = "https://5b44cf20b0388.streamlock.net:8443/vod/smil:bbb.smil/playlist.m3u8";
+    String URL = "rtsp://10.10.11.214:8554/mystream";
+//    String URL = "https://5b44cf20b0388.streamlock.net:8443/vod/smil:bbb.smil/playlist.m3u8";
 
 
     public LiveStreamFragment() {
