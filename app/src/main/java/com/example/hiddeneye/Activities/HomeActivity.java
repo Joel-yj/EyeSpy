@@ -33,7 +33,7 @@ public class HomeActivity extends AppCompatActivity {
                 case R.id.liveStream:
                     replaceFragment(new LiveStreamFragment());
                     break;
-                case R.id.chat:
+                case R.id.explore:
                     replaceFragment(new ChatFragment());
                     break;
             }
