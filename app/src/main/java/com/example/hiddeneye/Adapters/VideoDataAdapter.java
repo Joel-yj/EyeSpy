@@ -42,14 +42,6 @@ public class VideoDataAdapter extends RecyclerView.Adapter<VideoDataAdapter.MyVi
         holder.age.setText(String.valueOf(videoAttribute.getAge()));
         holder.isCarryingBackpack.setText(videoAttribute.getIsCarryingBackpack());
         holder.isCarryingBag.setText(videoAttribute.getIsCarryingBag());
-        holder.lowerBodyClothing.setText(videoAttribute.getLowerBodyClothing());
-        holder.lenLowerBodyClothing.setText(videoAttribute.getLenLowerBodyClothing());
-        holder.sleeveLength.setText(videoAttribute.getSleeveLength());
-        holder.hairLength.setText(videoAttribute.getHairLength());
-        holder.isWearingHat.setText(videoAttribute.getIsWearingHat());
-        holder.gender.setText(videoAttribute.getGender());
-        holder.colorUpperBodyClothing.setText(videoAttribute.getColorUpperBodyClothing());
-        holder.colorLowerBodyClothing.setText(videoAttribute.getColorLowerBodyClothing());
 
         //TODO To show picture frame of person with card details that is drawn from another container
         holder.cardView.setOnClickListener(new View.OnClickListener() {
@@ -81,18 +73,10 @@ public class VideoDataAdapter extends RecyclerView.Adapter<VideoDataAdapter.MyVi
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            videoPath = itemView.findViewById(R.id.videoPath);
-            age = itemView.findViewById(R.id.age);
-            isCarryingBackpack = itemView.findViewById(R.id.isCarryingBackpack);
-            isCarryingBag = itemView.findViewById(R.id.isCarryingBag);
-            lowerBodyClothing = itemView.findViewById(R.id.lowerBodyClothing);
-            lenLowerBodyClothing = itemView.findViewById(R.id.lenLowerBodyClothing);
-            sleeveLength = itemView.findViewById(R.id.sleeveLength);
-            hairLength = itemView.findViewById(R.id.hairLength);
-            isWearingHat = itemView.findViewById(R.id.isWearingHat);
-            gender = itemView.findViewById(R.id.gender);
-            colorUpperBodyClothing = itemView.findViewById(R.id.colorUpperBodyClothing);
-            colorLowerBodyClothing = itemView.findViewById(R.id.colorLowerBodyClothing);
+            videoPath = itemView.findViewById(R.id.att1);
+            age = itemView.findViewById(R.id.att2);
+            isCarryingBackpack = itemView.findViewById(R.id.att3);
+            isCarryingBag = itemView.findViewById(R.id.att4);
             cardView =  itemView.findViewById(R.id.attributeCard);
         }
     }

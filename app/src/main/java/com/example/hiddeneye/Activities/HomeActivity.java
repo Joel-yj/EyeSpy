@@ -23,17 +23,17 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        replaceFragment(new ExploreFragment());
+        replaceFragment(new HomeFragment());
 
         binding.bottomNavBar.setOnItemSelectedListener(item -> {
             switch (item.getItemId()){
-                case R.id.home:
+                case R.id.explore:
                     replaceFragment(new ExploreFragment());
                     break;
                 case R.id.liveStream:
                     replaceFragment(new LiveStreamFragment());
                     break;
-                case R.id.explore:
+                case R.id.home:
                     replaceFragment(new HomeFragment());
                     break;
             }
@@ -42,35 +42,6 @@ public class HomeActivity extends AppCompatActivity {
         });
 
 
-
-//        recyclerView = binding.userList;
-//
-//        // TODO nid to switch to microsoft azure database
-//        database = FirebaseDatabase.getInstance().getReference("Users");
-//        recyclerView.setHasFixedSize(true);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-//
-//        list = new ArrayList<>();
-//
-//        //TODO use the event listener for azure blob storage
-//        database.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-//                    VideoAttribute videoAttribute = dataSnapshot.getValue(VideoAttribute.class);
-//                    list.add(videoAttribute);
-//                }
-//                //TODO find a way to fix this lag? need a way to pull data from db before building view
-//                myAdapter = new VideoDataAdapter(recyclerView.getContext(),list);
-//                recyclerView.setAdapter(myAdapter);
-//                myAdapter.notifyDataSetChanged();
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
 
     }
 

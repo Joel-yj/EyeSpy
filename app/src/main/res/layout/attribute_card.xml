@@ -25,6 +25,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
+                android:padding="5dp"
                 app:srcCompat="@drawable/baseline_play_circle_outline_24" />
 
             <com.google.android.material.imageview.ShapeableImageView
@@ -110,13 +111,13 @@
 
                 <TextView
                     android:id="@+id/att4"
+                    style="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:paddingHorizontal="@dimen/activity_horizontal_margin"
                     android:text="@string/att4"
-                    android:textColor="@color/grey"
-                    style="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
-                    android:paddingHorizontal="@dimen/activity_horizontal_margin"/>
+                    android:textColor="@color/grey" />
 
             </LinearLayout>
 
