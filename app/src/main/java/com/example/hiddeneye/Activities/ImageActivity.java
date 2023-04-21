@@ -8,6 +8,8 @@ import com.example.hiddeneye.R;
 
 public class ImageActivity extends AppCompatActivity {
 
+    //TODO update this activity to display image found from blob storage
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

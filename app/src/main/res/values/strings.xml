@@ -3,6 +3,9 @@
     <!--App Tittle-->
     <string name="app_name">HiddenEye v2</string>
 
+    <!--Home Fragment-->
+    <string name="message">Send a message</string>
+
     <!--Video Attributes-->
     <string name="col1">videoPath</string>
     <string name="col2">age</string>
@@ -37,7 +40,6 @@
     <string name="att2">Hair Length : short</string>
     <string name="att3">Gender : Male</string>
     <string name="att4">isWearingHat : True</string>
-
 
 
 </resources>
