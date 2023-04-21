@@ -7,9 +7,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.hiddeneye.Activities.Fragments.HomeFragment;
+import com.example.hiddeneye.Activities.Fragments.ExploreFragment;
 import com.example.hiddeneye.Activities.Fragments.LiveStreamFragment;
-import com.example.hiddeneye.Activities.Fragments.ChatFragment;
+import com.example.hiddeneye.Activities.Fragments.HomeFragment;
 import com.example.hiddeneye.R;
 import com.example.hiddeneye.databinding.ActivityHomeBinding;
 
@@ -23,18 +23,18 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        replaceFragment(new HomeFragment());
+        replaceFragment(new ExploreFragment());
 
         binding.bottomNavBar.setOnItemSelectedListener(item -> {
             switch (item.getItemId()){
                 case R.id.home:
-                    replaceFragment(new HomeFragment());
+                    replaceFragment(new ExploreFragment());
                     break;
                 case R.id.liveStream:
                     replaceFragment(new LiveStreamFragment());
                     break;
                 case R.id.explore:
-                    replaceFragment(new ChatFragment());
+                    replaceFragment(new HomeFragment());
                     break;
             }
 
