@@ -85,6 +85,7 @@ public class ExploreFragment extends Fragment{
     }
 
 
+    //TODO Tune search parameters
     private void setToolbarMenu() {
         requireActivity().addMenuProvider(new MenuProvider() {
             @Override
