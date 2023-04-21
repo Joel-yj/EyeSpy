@@ -13,9 +13,10 @@
 
         <ImageView
             android:id="@+id/hiddeneyelogo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="300dp"
             android:src="@drawable/hiddeneye_logo"
+            android:paddingVertical="@dimen/activity_vertical_margin"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@id/chatbox"
@@ -23,22 +24,39 @@
 
         <EditText
             android:id="@+id/chatbox"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/chatbox"
             android:ems="10"
-            android:inputType="textPersonName"
             android:hint="@string/message"
-            app:layout_constraintStart_toStartOf="parent"
+            android:inputType="textMultiLine"
+            android:padding="@dimen/activity_vertical_margin"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/hiddeneyelogo"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/hiddeneyelogo"
+            android:maxLines="6"
+            android:drawableEnd="@drawable/message"/>
 
         <TextView
             android:id="@+id/guide"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text="@string/howto"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/chatbox"/>
+            app:layout_constraintTop_toBottomOf="@id/chatbox"
+            android:paddingVertical="@dimen/activity_vertical_margin"
+            style="@style/TextAppearance.AppCompat.Title"/>
+        <TextView
+            android:id="@+id/lorem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/loremipsum"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guide"
+            android:padding="@dimen/activity_vertical_margin"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

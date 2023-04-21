@@ -5,6 +5,9 @@
 
     <!--Home Fragment-->
     <string name="message">Send a message</string>
+    <string name="howto">Instructions to search</string>
+    <string name="loremipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ligula nisl, gravida vel lectus ut, bibendum tristique justo. Mauris bibendum ut elit vitae varius. Suspendisse euismod purus nec aliquet ultricies. Quisque eget consequat enim, id ultricies tortor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas nisl nunc, pellentesque nec </string>
+
 
     <!--Video Attributes-->
     <string name="col1">videoPath</string>
