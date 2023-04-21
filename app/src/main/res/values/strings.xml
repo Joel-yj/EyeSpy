@@ -31,6 +31,13 @@
     <!-- SearchView -->
     <string name="search_hint">Search here</string>
 
+    <!-- Card Template -->
+    <string name="name">John</string>
+    <string name="att1">Score : 0.9382</string>
+    <string name="att2">Hair Length : short</string>
+    <string name="att3">Gender : Male</string>
+    <string name="att4">isWearingHat : True</string>
+
 
 
 </resources>
