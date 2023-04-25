@@ -13,21 +13,47 @@
         android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="parent"/>
+        app:layout_constraintBottom_toTopOf="@id/message_edit_box" />
+
     <EditText
         android:id="@+id/message_edit_box"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/activity_vertical_margin"
         android:hint="@string/message"
         android:textColor="@color/grey"
-        android:padding="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/chatview"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constrainedWidth="true"
         android:background="@drawable/chatbox"
         android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
         android:layout_marginBottom="@dimen/activity_vertical_margin"
-        android:drawableEnd="@drawable/message"
+        android:inputType="textMultiLine"
+        android:minHeight="@dimen/edit_text_height"
+        android:maxLines="5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        android:isScrollContainer="true"
+        app:layout_constraintEnd_toStartOf="@id/send_button2"
+        app:layout_constraintBottom_toBottomOf="@+id/chatview"
         />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/send_button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/baseline_send_24"
+        app:fabCustomSize="45dp"
+        android:layout_margin="4dp"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        android:backgroundTint="@color/purple_500"
+        app:tint="@color/white"
+        app:layout_constraintStart_toEndOf="@id/message_edit_box"
+        app:layout_constraintBottom_toBottomOf="@id/chatview"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+        android:layout_marginBottom="@dimen/activity_vertical_margin" />
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

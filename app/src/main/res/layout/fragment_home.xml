@@ -22,35 +22,38 @@
             app:layout_constraintBottom_toTopOf="@id/chatbox"
             app:layout_constraintStart_toStartOf="parent"/>
 
-<!--TODO Put the send message icon outside the box-->
         <EditText
             android:id="@+id/chatbox"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/edit_text_height"
             android:background="@drawable/chatbox"
             app:layout_constrainedWidth="true"
             android:hint="@string/message"
             android:inputType="textMultiLine"
             android:maxLines="6"
             android:layout_marginStart="@dimen/activity_horizontal_margin"
-            android:paddingVertical="@dimen/activity_vertical_margin"
+            android:padding="@dimen/activity_vertical_margin"
             app:layout_constraintEnd_toStartOf="@+id/send_button"
             app:layout_constraintStart_toStartOf="parent"
+            android:isScrollContainer="true"
             app:layout_constraintTop_toBottomOf="@id/hiddeneyelogo"
             app:layout_constraintHorizontal_chainStyle="packed"/>
-        <ImageButton
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/send_button"
             android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:paddingVertical="8dp"
-            android:src="@drawable/message"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_send_24"
+            app:fabCustomSize="45dp"
+            android:layout_margin="4dp"
             app:layout_constraintStart_toEndOf="@+id/chatbox"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/hiddeneyelogo"
             app:layout_constraintBottom_toTopOf="@+id/guide"
-            android:paddingHorizontal="@dimen/activity_horizontal_margin"
-            android:background="@color/white"
+            android:backgroundTint="@color/purple_500"
+            app:tint="@color/white"
             />
         <TextView
             android:id="@+id/guide"
