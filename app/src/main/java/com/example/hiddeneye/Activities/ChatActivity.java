@@ -19,5 +19,6 @@ public class ChatActivity extends AppCompatActivity {
 
         Intent i = getIntent();
         String text = i.getStringExtra("prompt");
+        System.out.println(text);
     }
 }
