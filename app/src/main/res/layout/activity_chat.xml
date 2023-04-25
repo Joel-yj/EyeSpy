@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,49 +12,47 @@
         android:id="@+id/chatview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        app:layout_constraintBottom_toTopOf="@+id/message_edit_box"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/message_edit_box" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/chat_item" />
 
     <EditText
         android:id="@+id/message_edit_box"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/activity_vertical_margin"
-        android:hint="@string/message"
-        android:textColor="@color/grey"
-        app:layout_constrainedWidth="true"
-        android:background="@drawable/chatbox"
         android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
         android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:background="@drawable/chatbox"
+        android:hint="@string/message"
         android:inputType="textMultiLine"
-        android:minHeight="@dimen/edit_text_height"
+        android:isScrollContainer="false"
         android:maxLines="5"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        android:isScrollContainer="true"
-        app:layout_constraintEnd_toStartOf="@id/send_button2"
+        android:minHeight="@dimen/edit_text_height"
+        android:padding="@dimen/activity_vertical_margin"
+        android:textColor="@color/black"
+        app:layout_constrainedWidth="true"
         app:layout_constraintBottom_toBottomOf="@+id/chatview"
-        />
+        app:layout_constraintEnd_toStartOf="@id/send_button"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/send_button2"
+        android:id="@+id/send_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:backgroundTint="@color/purple_500"
         android:src="@drawable/baseline_send_24"
         app:fabCustomSize="45dp"
-        android:layout_margin="4dp"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        android:backgroundTint="@color/purple_500"
-        app:tint="@color/white"
-        app:layout_constraintStart_toEndOf="@id/message_edit_box"
         app:layout_constraintBottom_toBottomOf="@id/chatview"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
-        android:layout_marginBottom="@dimen/activity_vertical_margin" />
-
-
-
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/message_edit_box"
+        app:tint="@color/white" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,20 +2,21 @@
 
 
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/attributeCard"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardElevation="8dp"
-    app:cardCornerRadius="20dp"
-    app:cardUseCompatPadding="true"
     android:layout_margin="@dimen/activity_vertical_margin"
-    android:id="@+id/attributeCard">
+    app:cardCornerRadius="20dp"
+    app:cardElevation="8dp"
+    app:cardUseCompatPadding="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:animateLayoutChanges="true">
+        android:animateLayoutChanges="true"
+        android:orientation="vertical">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -32,13 +33,13 @@
                 android:id="@+id/display_picture"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
                 android:padding="5dp"
                 app:shapeAppearanceOverlay="@style/circular"
                 app:srcCompat="@drawable/harish"
-                app:strokeWidth="5dp"
                 app:strokeColor="@color/black"
-                android:layout_marginStart="@dimen/activity_horizontal_margin"
-                android:layout_alignParentStart="true"/>
+                app:strokeWidth="5dp" />
 
             <LinearLayout
                 android:id="@+id/linearlayout1"
@@ -63,51 +64,49 @@
                 android:id="@+id/linearlayout2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/activity_horizontal_margin"
                 android:layout_below="@+id/linearlayout1"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
                 android:layout_toEndOf="@id/display_picture"
                 android:orientation="horizontal">
 
 
                 <TextView
                     android:id="@+id/att1"
+                    style="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/att1"
-                    android:textColor="@color/grey"
-                    style="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
-                    />
+                    android:textColor="@color/grey" />
 
                 <TextView
                     android:id="@+id/att2"
+                    style="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:paddingHorizontal="@dimen/activity_horizontal_margin"
                     android:text="@string/att2"
-                    android:textColor="@color/grey"
-                    style="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
-                    android:paddingHorizontal="@dimen/activity_horizontal_margin"/>
+                    android:textColor="@color/grey" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/linearlayout3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/activity_horizontal_margin"
                 android:layout_below="@+id/linearlayout2"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
                 android:layout_toEndOf="@id/display_picture"
                 android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/att3"
+                    style="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/att3"
-                    android:textColor="@color/grey"
-                    style="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
-                    />
+                    android:textColor="@color/grey" />
 
                 <TextView
                     android:id="@+id/att4"
@@ -122,14 +121,9 @@
             </LinearLayout>
 
 
-
         </RelativeLayout>
 
     </LinearLayout>
 
-
-
-
-            
 
 </androidx.cardview.widget.CardView>
