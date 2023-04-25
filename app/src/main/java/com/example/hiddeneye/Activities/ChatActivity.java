@@ -17,9 +17,7 @@ public class ChatActivity extends AppCompatActivity {
         binding = ActivityChatBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-
         Intent i = getIntent();
         String text = i.getStringExtra("prompt");
-        binding.test1.setText(text);
     }
 }
