@@ -47,6 +47,10 @@ public class ChatActivity extends AppCompatActivity {
 //        llm.setStackFromEnd(true);
         chatView.setLayoutManager(llm);
 
+        Intent i = getIntent();
+        String text = i.getStringExtra("prompt");
+        addToChat(text,Message.SENT_BY_USER);
+
 
         sendButton.setOnClickListener(v -> {
             String question = messageEditText.getText().toString().trim();
@@ -56,9 +60,7 @@ public class ChatActivity extends AppCompatActivity {
 
 
 
-        Intent i = getIntent();
-        String text = i.getStringExtra("prompt");
-        System.out.println(text);
+
     }
 
     void addToChat(String message, String sentBy){
