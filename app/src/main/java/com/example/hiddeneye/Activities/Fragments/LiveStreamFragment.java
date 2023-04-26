@@ -18,9 +18,11 @@ public class LiveStreamFragment extends Fragment {
 
     StyledPlayerView playerView;
     ExoPlayer exoPlayer;
-    String URL = "rtsp://10.10.11.214:8554/mystream";
-//    String URL = "https://5b44cf20b0388.streamlock.net:8443/vod/smil:bbb.smil/playlist.m3u8";
 
+    //alvin rtsp
+    String URL = "rtsp://10.10.8.171:8554/video_stream";
+    //fabian rtsp
+//    String URL = "rtsp://10.10.11.214:8554/mystream";
 
     public LiveStreamFragment() {
         // Required empty public constructor
@@ -71,6 +73,7 @@ public class LiveStreamFragment extends Fragment {
 //        });
     }
 
+    //TODO find out how to stop the lag and change rgb color
     public void initiliasePlayer() {
         exoPlayer = new ExoPlayer.Builder(getContext()).build();
         playerView.setPlayer(exoPlayer);

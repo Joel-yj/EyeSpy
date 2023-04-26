@@ -1,8 +1,9 @@
-package com.example.hiddeneye.Models;
+package com.example.hiddeneye.ViewModels;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.hiddeneye.Models.VideoAttribute;
 import com.example.hiddeneye.Repository.VideoAttributeRepository;
 
 import java.util.List;

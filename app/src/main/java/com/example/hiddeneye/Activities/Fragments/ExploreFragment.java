@@ -27,7 +27,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.hiddeneye.Adapters.VideoDataAdapter;
 import com.example.hiddeneye.Models.VideoAttribute;
-import com.example.hiddeneye.Models.VideoAttributeViewModel;
+import com.example.hiddeneye.ViewModels.VideoAttributeViewModel;
 import com.example.hiddeneye.R;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
