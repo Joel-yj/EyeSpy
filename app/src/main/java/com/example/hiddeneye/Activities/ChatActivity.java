@@ -44,7 +44,7 @@ public class ChatActivity extends AppCompatActivity {
         messageAdapter = new MessageAdapter(messageList);
         chatView.setAdapter(messageAdapter);
         LinearLayoutManager llm = new LinearLayoutManager(this);
-        llm.setStackFromEnd(true);
+//        llm.setStackFromEnd(true);
         chatView.setLayoutManager(llm);
 
 
@@ -52,7 +52,6 @@ public class ChatActivity extends AppCompatActivity {
             String question = messageEditText.getText().toString().trim();
             addToChat(question,Message.SENT_BY_USER);
             messageEditText.setText("");
-
         });
 
 
