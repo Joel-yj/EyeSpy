@@ -19,24 +19,35 @@ import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
+/**
+ * Repository class for retrieving video attributes from Azure Blob Storage.
+ * This class provides methods to fetch video attributes and exposes them as LiveData for observing changes.
+ */
 public class VideoAttributeRepository {
     private MutableLiveData<List<VideoAttribute>> videoAttributesLiveData;
 
-    //TODO Find a way to protect connectionString
+    //TODO Find a way to protect connectionString - try config.properties file
     private static final String storageConnectionString = "DefaultEndpointsProtocol=https;" +
             "AccountName=testjoel1;" +
             "AccountKey=w7mc7NKblY8iAj1tFljAJdmhx9BEXsw4A10l9iN92CFO/yuhCJFg3HwhuZ3G1EtoXBHFUHNcvGO/+ASt506U9g==";
 
+    /**
+     * Constructs a new instance of VideoAttributeRepository.
+     */
     public VideoAttributeRepository(){
         videoAttributesLiveData = new MutableLiveData<>();
     }
 
+    /**
+     * Retrieves video attributes from Azure Blob Storage.
+     * The video attributes are fetched asynchronously and stored in the LiveData for observation.
+     */
     public void getVideoAttributesFromBlobStorage(){
         Executor serialExecutor = Executors.newSingleThreadExecutor();
 
         serialExecutor.execute(new Runnable() {
             @Override
-            //TODO iterate through different CloudBlockBlob in container
+            //TODO iterate through different CloudBlockBlobs in container
             public void run() {
                 try{
                     CloudStorageAccount account = CloudStorageAccount.parse(storageConnectionString);
@@ -57,21 +68,16 @@ public class VideoAttributeRepository {
 
     }
 
+    /**
+     * Returns the LiveData containing the video attributes.
+     *
+     * @return LiveData object representing the video attributes.
+     */
     public LiveData<List<VideoAttribute>> getVideoAttributesLiveData(){
         return videoAttributesLiveData;
     }
 
 }
-//    for (ListBlobItem blobItem : container.listBlobs()){
-//                    if (blobItem instanceof CloudBlockBlob){
-//                        CloudBlockBlob jsonBlob = (CloudBlockBlob) blobItem;
-//                        String jsonContent = jsonBlob.downloadText();
-//                        Gson gson = new Gson();
-//                        VideoAttribute videoItem = gson.fromJson(jsonContent,VideoAttribute.class);
-//                        System.out.println(videoItem.getVideoPath());
-//                        videoAttributeList.add(videoItem);
-//
-//                    }
-//                }
+
 
 

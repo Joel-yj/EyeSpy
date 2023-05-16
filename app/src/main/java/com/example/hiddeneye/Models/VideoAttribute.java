@@ -1,5 +1,9 @@
 package com.example.hiddeneye.Models;
 
+/**
+ * Model class representing the attributes of a video.
+ */
+
 public class VideoAttribute {
 
     private String videoPath;
@@ -15,26 +19,53 @@ public class VideoAttribute {
     private String colorUpperBodyClothing;
     private String colorLowerBodyClothing;
 
+
+    /**
+     * Returns the video path.
+     *
+     * @return The video path.
+     */
     public String getVideoPath() {
         return videoPath;
     }
 
-    public void setVideoPath(String videoPath) {
-        this.videoPath = videoPath;
-    }
-
+    /**
+     * Sets the video path.
+     *
+     * @param videoPath The video path.
+     */
+    /**
+     * Returns the age.
+     *
+     * @return The age.
+     */
     public int getAge() {
         return age;
     }
 
+    /**
+     * Sets the age.
+     *
+     * @param age The age.
+     */
     public void setAge(int age) {
         this.age = age;
     }
 
+    /**
+     * Returns whether the person is carrying a backpack.
+     *
+     * @return "true" if carrying a backpack, "false" otherwise.
+     */
     public String getIsCarryingBackpack() {
         return isCarryingBackpack;
     }
 
+    /**
+     * Sets whether the person is carrying a backpack.
+     *
+     * @param carryingBackpack "true" if carrying a backpack, "false" otherwise.
+     */
     public void setCarryingBackpack(String carryingBackpack) {
         isCarryingBackpack = carryingBackpack;
     }
