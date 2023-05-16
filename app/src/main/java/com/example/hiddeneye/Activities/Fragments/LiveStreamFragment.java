@@ -14,6 +14,10 @@ import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.MediaItem;
 import com.google.android.exoplayer2.ui.StyledPlayerView;
 
+/**
+ * The LiveStreamFragment class that displays a live stream video from an edge device.
+ * It uses ExoPlayer library to play the video stream.
+ */
 public class LiveStreamFragment extends Fragment {
 
     StyledPlayerView playerView;
@@ -24,17 +28,13 @@ public class LiveStreamFragment extends Fragment {
     //fabian rtsp
 //    String URL = "rtsp://10.10.11.214:8554/mystream";
 
+    /**
+     * Default constructor for the LiveStreamFragment.
+     */
     public LiveStreamFragment() {
         // Required empty public constructor
     }
 
-
-    public static LiveStreamFragment newInstance(String param1, String param2) {
-        LiveStreamFragment fragment = new LiveStreamFragment();
-        Bundle args = new Bundle();
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -42,8 +42,7 @@ public class LiveStreamFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 
         // Inflate the layout for this fragment
@@ -56,30 +55,17 @@ public class LiveStreamFragment extends Fragment {
         playerView = view.findViewById(R.id.exoplayer);
 
 
-//        videoView = view.findViewById(R.id.videoView);
-//        progressBar = view.findViewById(R.id.progressBar);
-//        mediaController = new MediaController(view.getContext());
-//        mediaController.setAnchorView(videoView);
-//        videoView.setMediaController(mediaController);
-//        Uri uri = Uri.parse(URL);
-//        videoView.setVideoURI(uri);
-//        videoView.requestFocus();
-//        videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-//            @Override
-//            public void onPrepared(MediaPlayer mp) {
-//                videoView.start();
-//                progressBar.setVisibility(View.GONE);
-//            }
-//        });
     }
 
+    /**
+     * Initializes and starts the ExoPlayer to play the live stream video.
+     */
     //TODO find out how to stop the lag and change rgb color
     public void initiliasePlayer() {
         exoPlayer = new ExoPlayer.Builder(getContext()).build();
         playerView.setPlayer(exoPlayer);
 
-        MediaItem mediaItem = new MediaItem.Builder().setUri(URL)
-                        .setLiveConfiguration(new MediaItem.LiveConfiguration.Builder().setMaxPlaybackSpeed(1.02f).build()).build();
+        MediaItem mediaItem = new MediaItem.Builder().setUri(URL).setLiveConfiguration(new MediaItem.LiveConfiguration.Builder().setMaxPlaybackSpeed(1.02f).build()).build();
 
         exoPlayer.setMediaItem(mediaItem);
         exoPlayer.prepare();
@@ -98,7 +84,7 @@ public class LiveStreamFragment extends Fragment {
     public void onPause() {
         super.onPause();
 
-        if (exoPlayer == null){
+        if (exoPlayer == null) {
             initiliasePlayer();
         }
     }

@@ -18,6 +18,7 @@ import com.example.hiddeneye.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
+
     /**
      * Called when the activity is starting. This is where most initialization should go.
      *
@@ -42,8 +43,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
-
 
 
 }

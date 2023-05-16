@@ -13,11 +13,21 @@ import com.example.hiddeneye.Activities.Fragments.HomeFragment;
 import com.example.hiddeneye.R;
 import com.example.hiddeneye.databinding.ActivityHomeBinding;
 
+/**
+ * The HomeActivity class serves as the main activity of the application.
+ * It hosts different fragments and handles the navigation between them.
+ */
 public class HomeActivity extends AppCompatActivity {
 
 
     ActivityHomeBinding binding;
 
+    /**
+     * Called when the activity is created. Initializes the activity layout, sets up the initial fragment,
+     * and configures the bottom navigation bar.
+     *
+     * @param savedInstanceState The saved instance state Bundle.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +36,7 @@ public class HomeActivity extends AppCompatActivity {
         replaceFragment(new HomeFragment());
 
         binding.bottomNavBar.setOnItemSelectedListener(item -> {
-            switch (item.getItemId()){
+            switch (item.getItemId()) {
                 case R.id.explore:
                     replaceFragment(new ExploreFragment());
                     break;
@@ -42,13 +52,17 @@ public class HomeActivity extends AppCompatActivity {
         });
 
 
-
     }
 
-    private void replaceFragment(Fragment fragment){
+    /**
+     * Replaces the current fragment with the specified fragment.
+     *
+     * @param fragment The fragment to replace.
+     */
+    private void replaceFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.frame_layout,fragment);
+        fragmentTransaction.replace(R.id.frame_layout, fragment);
         fragmentTransaction.commit();
     }
 

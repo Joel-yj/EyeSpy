@@ -14,14 +14,29 @@ import com.example.hiddeneye.R;
 
 import java.util.List;
 
+/**
+ * Adapter class for binding chat messages to a RecyclerView in HomeFragment.
+ */
 public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHolder>{
 
     List<Message> messageList;
 
+    /**
+     * Constructs a new MessageAdapter.
+     *
+     * @param messageList The list of chat messages to display.
+     */
     public MessageAdapter(List<Message> messageList) {
         this.messageList = messageList;
     }
 
+    /**
+     * Creates a new ViewHolder by inflating the layout.
+     *
+     * @param parent   The parent ViewGroup.
+     * @param viewType The type of the view.
+     * @return The created ViewHolder.
+     */
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -31,6 +46,12 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
     }
 
     @Override
+    /**
+     * Binds data to the ViewHolder.
+     *
+     * @param holder   The ViewHolder to bind data to.
+     * @param position The position of the item in the list.
+     */
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Message message = messageList.get(position);
         if (message.getSentBy().equals(Message.SENT_BY_USER)){
@@ -46,11 +67,19 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
 
     }
 
+    /**
+     * Returns the number of items in the list.
+     *
+     * @return The number of items.
+     */
     @Override
     public int getItemCount() {
         return messageList.size();
     }
 
+    /**
+     * ViewHolder class for caching the views of each item in the RecyclerView.
+     */
     public class MyViewHolder extends RecyclerView.ViewHolder{
 
         LinearLayout leftChatView,rightChatView;

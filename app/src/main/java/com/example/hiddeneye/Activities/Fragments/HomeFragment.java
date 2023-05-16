@@ -15,21 +15,22 @@ import com.example.hiddeneye.Activities.ChatActivity;
 import com.example.hiddeneye.databinding.FragmentHomeBinding;
 
 
+/**
+ * The HomeFragment class represents a fragment that displays the home screen of the application.
+ * It allows the user to enter a chat prompt and navigate to the ChatActivity for chat.
+ */
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
 
 
+    /**
+     * Default constructor for the HomeFragment.
+     */
     public HomeFragment() {
         // Required empty public constructor
     }
 
-    public static HomeFragment newInstance(String param1, String param2) {
-        HomeFragment fragment = new HomeFragment();
-        Bundle args = new Bundle();
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -37,11 +38,10 @@ public class HomeFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
-    //TODO Implement openAI langchain algo
+    //TODO Implement openAI langchain algo from django webApp
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        binding = FragmentHomeBinding.inflate(inflater,container,false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        binding = FragmentHomeBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
     }

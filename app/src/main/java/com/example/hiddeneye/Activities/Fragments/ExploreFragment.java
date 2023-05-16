@@ -36,7 +36,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 
-public class ExploreFragment extends Fragment{
+public class ExploreFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private VideoAttributeViewModel viewModel;
@@ -46,20 +46,13 @@ public class ExploreFragment extends Fragment{
         // Required empty public constructor
     }
 
-    public static ExploreFragment newInstance(String param1, String param2) {
-        ExploreFragment fragment = new ExploreFragment();
-        Bundle args = new Bundle();
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_explore, container, false);
     }
     // Inflate the layout for this fragment
@@ -68,7 +61,7 @@ public class ExploreFragment extends Fragment{
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
-        super.onViewCreated(view,savedInstanceState);
+        super.onViewCreated(view, savedInstanceState);
         setToolbarMenu();
         recyclerView = view.findViewById(R.id.userList);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -91,7 +84,7 @@ public class ExploreFragment extends Fragment{
             @Override
             public void onCreateMenu(@NonNull Menu menu, @NonNull MenuInflater menuInflater) {
 
-                menuInflater.inflate(R.menu.search_action_menu,menu);
+                menuInflater.inflate(R.menu.search_action_menu, menu);
 
                 MenuItem menuItem = menu.findItem(R.id.search_action);
                 SearchView searchView = (SearchView) menuItem.getActionView();
@@ -103,14 +96,15 @@ public class ExploreFragment extends Fragment{
 
                         RequestQueue queue = Volley.newRequestQueue(getActivity());
                         String url = "https://hiddeneyebackend.azurewebsites.net/search?query=" + query;
-                        StringRequest stringRequest = new StringRequest(Request.Method.GET,url,new Response.Listener<String>(){
+                        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
 
                             @Override
                             public void onResponse(String response) {
                                 // use response here to filter videoattribute objects
                                 Gson gson = new Gson();
-                                Type listType = new TypeToken<ArrayList<VideoAttribute>>(){}.getType();
-                                ArrayList<VideoAttribute> videoAttributes = gson.fromJson(response,listType);
+                                Type listType = new TypeToken<ArrayList<VideoAttribute>>() {
+                                }.getType();
+                                ArrayList<VideoAttribute> videoAttributes = gson.fromJson(response, listType);
                                 System.out.println(videoAttributes);
                                 myAdapter.updateList(videoAttributes);
 
@@ -138,9 +132,8 @@ public class ExploreFragment extends Fragment{
             public boolean onMenuItemSelected(@NonNull MenuItem menuItem) {
                 return false;
             }
-        },getViewLifecycleOwner(), Lifecycle.State.RESUMED);
+        }, getViewLifecycleOwner(), Lifecycle.State.RESUMED);
     }
-
 
 
 }
