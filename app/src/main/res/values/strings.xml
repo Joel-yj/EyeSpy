@@ -1,7 +1,7 @@
 <resources>
 
     <!--App Tittle-->
-    <string name="app_name">HiddenEye v2</string>
+    <string name="app_name">EyeSpy</string>
 
     <!--Home Fragment-->
     <string name="message">send a message</string>
